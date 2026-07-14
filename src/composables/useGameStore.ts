@@ -3,7 +3,7 @@ import { findPool } from '@/domain/catalog'
 import { previewOptions } from '@/domain/engine'
 import { drawActiveTask, createInitialState, transition } from '@/domain/machine'
 import { createSeed } from '@/domain/random'
-import type { MachineEvent, MachineState, StartRoute, WheelOption, WheelPool } from '@/domain/types'
+import type { MachineEvent, MachineState, RollTask, StartRoute, WheelOption, WheelPool } from '@/domain/types'
 import { downloadText, safeFileName, soften } from '@/utils/text'
 import { useWheelOverrides } from './useWheelOverrides'
 
@@ -14,10 +14,12 @@ const isBusy = shallowRef(false)
 const isAuto = shallowRef(false)
 const isTurbo = shallowRef(false)
 const wheelPool = shallowRef<WheelPool | null>(null)
+const wheelTask = shallowRef<RollTask | null>(null)
 const wheelOptions = shallowRef<WheelOption[]>([])
 const wheelSelectedIndex = shallowRef(-1)
 const wheelSpinNonce = shallowRef(0)
 const wheelResetNonce = shallowRef(0)
+const awaitingAdvance = shallowRef(false)
 let autoTimer: number | null = null
 const overrides = useWheelOverrides()
 
@@ -28,6 +30,7 @@ function currentTask() {
 function refreshWheel(reset = true) {
   const task = currentTask()
   const pool = task ? overrides.resolve(task.pool) ?? null : null
+  wheelTask.value = task
   wheelPool.value = pool
   wheelOptions.value = pool && task ? previewOptions(pool, task, machine.value.context) : []
   wheelSelectedIndex.value = -1
@@ -53,6 +56,7 @@ function apply(event: MachineEvent, remember = false): boolean {
 
 function openStart() {
   stopAuto()
+  awaitingAdvance.value = false
   apply({ type: 'OPEN_START' })
 }
 
@@ -63,12 +67,27 @@ function cancelStart() {
 function start(route: StartRoute, seed = createSeed()) {
   stopAuto()
   history.value = []
+  awaitingAdvance.value = false
   apply({ type: 'START', route, seed })
   refreshWheel()
 }
 
+function advance() {
+  if (!awaitingAdvance.value || isBusy.value) return false
+  awaitingAdvance.value = false
+  refreshWheel()
+  return true
+}
+
 async function spin() {
   if (isBusy.value || machine.value.value === 'ending' || machine.value.value === 'idle') return
+  if (awaitingAdvance.value) {
+    advance()
+    if (isAuto.value && !hasEnded()) {
+      autoTimer = window.setTimeout(spin, isTurbo.value ? 50 : 450)
+    }
+    return
+  }
   if (!apply({ type: 'ROLL' }, true)) return
 
   isBusy.value = true
@@ -84,13 +103,16 @@ async function spin() {
     const duration = isTurbo.value ? 40 : machine.value.context.settings.spinDuration
     await new Promise((resolve) => window.setTimeout(resolve, duration))
     apply({ type: 'RESOLVE', option: draw.option, probability: draw.probability })
-    refreshWheel()
+    awaitingAdvance.value = !hasEnded()
   } finally {
     isBusy.value = false
   }
 
   if (isAuto.value && !hasEnded()) {
-    autoTimer = window.setTimeout(spin, isTurbo.value ? 50 : 450)
+    autoTimer = window.setTimeout(() => {
+      advance()
+      void spin()
+    }, isTurbo.value ? 50 : 450)
   } else if (hasEnded()) {
     stopAuto()
   }
@@ -120,6 +142,7 @@ function hasEnded() {
 function undo() {
   if (isBusy.value || history.value.length === 0) return
   stopAuto()
+  awaitingAdvance.value = false
   const previous = history.value[history.value.length - 1]
   history.value = history.value.slice(0, -1)
   if (previous) {
@@ -145,6 +168,7 @@ function restoreLocal(): boolean {
     machine.value = parsed.value === 'rolling'
       ? { ...parsed, value: parsed.context.resumeState ?? 'idle', context: { ...parsed.context, activeTask: null } }
       : parsed
+    awaitingAdvance.value = false
     refreshWheel()
     return true
   } catch {
@@ -158,6 +182,7 @@ function importSave(content: string): boolean {
     if (!parsed.value || !parsed.context?.seed) return false
     stopAuto()
     history.value = []
+    awaitingAdvance.value = false
     machine.value = parsed
     persist()
     refreshWheel()
@@ -242,12 +267,9 @@ const phaseLabel = computed(() => ({
   rolling: '命运转动中',
   ending: '命运终章',
 })[machine.value.value])
-const activePool = computed(() => {
-  const task = context.value.activeTask ?? context.value.queue[0]
-  const pool = task ? findPool(task.pool) ?? null : null
-  return pool ? overrides.effective(pool) : null
-})
-const taskTitle = computed(() => context.value.activeTask?.pool ?? context.value.queue[0]?.pool ?? (machine.value.value === 'ending' ? '本轮旅程已经结束' : '展开下一段命运'))
+const activePool = computed(() => wheelPool.value)
+const displayTask = computed(() => wheelTask.value)
+const taskTitle = computed(() => displayTask.value?.pool ?? (machine.value.value === 'ending' ? '本轮旅程已经结束' : '展开下一段命运'))
 const displayResult = computed(() => soften(context.value.lastResult || '等待第一次转动。', context.value.settings.softenText))
 const displayLogs = computed(() => context.value.logs.map((entry) => ({
   ...entry,
@@ -263,12 +285,14 @@ export function useGameStore() {
     isBusy: readonly(isBusy),
     isAuto: readonly(isAuto),
     isTurbo: readonly(isTurbo),
+    awaitingAdvance: readonly(awaitingAdvance),
     isStarted,
     isStartOpen,
     canUndo,
     routeLabel,
     phaseLabel,
     activePool,
+    displayTask,
     taskTitle,
     displayResult,
     displayLogs,
@@ -282,6 +306,7 @@ export function useGameStore() {
     cancelStart,
     start,
     spin,
+    advance,
     toggleAuto,
     stopAuto,
     undo,

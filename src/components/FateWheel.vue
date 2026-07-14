@@ -10,6 +10,7 @@ const props = defineProps<{
   resetNonce: number
   duration: number
   disabled: boolean
+  awaitingAdvance: boolean
 }>()
 
 defineEmits<{ spin: [] }>()
@@ -117,9 +118,9 @@ onBeforeUnmount(() => observer?.disconnect())
       class="wheel-canvas"
       :style="{ transform: `rotate(${rotation}deg)`, transitionDuration: `${reducedMotion ? Math.min(duration, 100) : duration}ms` }"
     />
-    <button class="wheel-trigger" :disabled="disabled" :aria-busy="disabled" aria-label="转动命运轮盘" @click="$emit('spin')">
-      <span>转动</span>
-      <small>SPIN</small>
+    <button class="wheel-trigger" :disabled="disabled" :aria-busy="disabled" :aria-label="awaitingAdvance ? '进入下一项' : '转动命运轮盘'" @click="$emit('spin')">
+      <span>{{ awaitingAdvance ? '继续' : '转动' }}</span>
+      <small>{{ awaitingAdvance ? 'NEXT' : 'SPIN' }}</small>
     </button>
   </div>
 </template>

@@ -19,7 +19,7 @@ const mobileTab = ref<MobileTab>('stage')
 const editorOpen = ref(false)
 const layoutMode = ref<'desktop' | 'mobile'>(typeof window !== 'undefined' && window.innerWidth <= 760 ? 'mobile' : 'desktop')
 
-const currentTask = computed(() => store.context.value.activeTask ?? store.context.value.queue[0] ?? null)
+const currentTask = computed(() => store.displayTask.value)
 const currentOptions = computed(() => store.wheelOptions.value.length > 0
   ? store.wheelOptions.value
   : store.activePool.value && currentTask.value
@@ -32,6 +32,7 @@ const recentLogs = computed(() => store.displayLogs.value.slice(-3).reverse())
 const statusText = computed(() => {
   if (store.isBusy.value) return `命运转动中 · 第 ${store.context.value.step + 1} 步`
   if (store.isAuto.value) return store.isTurbo.value ? '极速推进中' : '自动推进中'
+  if (store.awaitingAdvance.value) return '查看本次命运'
   if (store.machine.value.value === 'ending') return '命运已完结'
   return store.isStarted.value ? '待命' : '尚未开始'
 })
@@ -55,7 +56,7 @@ async function handleImport(event: Event) {
 }
 
 function openEditor() {
-  if (!store.activePool.value || store.isBusy.value) return
+  if (!store.activePool.value || store.isBusy.value || store.awaitingAdvance.value) return
   store.stopAuto()
   editorOpen.value = true
 }
@@ -120,7 +121,7 @@ function setLayoutMode(mode: 'desktop' | 'mobile') {
       <section class="panel stage-panel" :class="{ 'mobile-hidden': mobileTab !== 'stage' }">
         <header class="task-header">
           <div><p class="eyebrow">{{ store.phaseLabel.value }}</p><h2>{{ store.taskTitle.value }}</h2><span>{{ store.activePool.value ? `${currentOptions.length} 个当前候选结果` : '命运尚未展开' }}</span></div>
-          <button class="button editor-entry" :disabled="!store.activePool.value || store.isBusy.value" @click="openEditor"><Pencil :size="16" />修改</button>
+          <button class="button editor-entry" :disabled="!store.activePool.value || store.isBusy.value || store.awaitingAdvance.value" @click="openEditor"><Pencil :size="16" />修改</button>
         </header>
         <div class="stage-content">
           <FateWheel
@@ -130,6 +131,7 @@ function setLayoutMode(mode: 'desktop' | 'mobile') {
             :reset-nonce="store.wheelResetNonce.value"
             :duration="store.isTurbo.value ? 40 : store.context.value.settings.spinDuration"
             :disabled="!store.isStarted.value || store.isBusy.value || store.isAuto.value || store.machine.value.value === 'ending'"
+            :awaiting-advance="store.awaitingAdvance.value"
             @spin="store.spin"
           />
           <div class="stage-feedback">
@@ -141,7 +143,7 @@ function setLayoutMode(mode: 'desktop' | 'mobile') {
           </div>
         </div>
         <div class="play-controls" aria-label="命运推进操作">
-          <button class="button gold" :disabled="!store.isStarted.value || store.isBusy.value || store.isAuto.value || store.machine.value.value === 'ending'" @click="store.spin"><Play :size="17" />继续剧情</button>
+          <button class="button gold" :disabled="!store.isStarted.value || store.isBusy.value || store.isAuto.value || store.machine.value.value === 'ending'" @click="store.spin"><Play :size="17" />{{ store.awaitingAdvance.value ? '进入下一项' : '继续剧情' }}</button>
           <button class="button primary" :disabled="store.isBusy.value || store.machine.value.value === 'ending'" @click="store.toggleAuto(false)"><Pause v-if="store.isAuto.value && !store.isTurbo.value" :size="17" /><Play v-else :size="17" />{{ store.isAuto.value && !store.isTurbo.value ? '暂停自动' : '自动推进' }}</button>
           <button class="button" :disabled="store.isBusy.value || store.machine.value.value === 'ending'" @click="store.toggleAuto(true)"><Pause v-if="store.isAuto.value && store.isTurbo.value" :size="17" /><FastForward v-else :size="17" />{{ store.isAuto.value && store.isTurbo.value ? '暂停极速' : '极速结算' }}</button>
         </div>
