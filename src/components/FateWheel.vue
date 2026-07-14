@@ -18,7 +18,9 @@ defineEmits<{ spin: [] }>()
 const canvas = ref<HTMLCanvasElement | null>(null)
 const rotation = ref(0)
 const reducedMotion = ref(false)
+const resetInProgress = ref(false)
 let observer: ResizeObserver | null = null
+let resetFrame: number | null = null
 
 const visibleOptions = computed(() => props.options.length > 0
   ? props.options
@@ -94,9 +96,21 @@ watch(() => props.spinNonce, () => {
   rotation.value += 2160 + ((target - normalized + 360) % 360)
 })
 
-watch(() => props.resetNonce, () => {
+function resetRotation() {
+  if (resetFrame != null) window.cancelAnimationFrame(resetFrame)
+  resetInProgress.value = true
   rotation.value = 0
-})
+  void nextTick(() => {
+    // Force the no-transition transform to take effect before re-enabling spins.
+    void canvas.value?.offsetWidth
+    resetFrame = window.requestAnimationFrame(() => {
+      resetInProgress.value = false
+      resetFrame = null
+    })
+  })
+}
+
+watch(() => props.resetNonce, resetRotation)
 
 onMounted(() => {
   const query = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -107,7 +121,10 @@ onMounted(() => {
   draw()
 })
 
-onBeforeUnmount(() => observer?.disconnect())
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  if (resetFrame != null) window.cancelAnimationFrame(resetFrame)
+})
 </script>
 
 <template>
@@ -116,7 +133,7 @@ onBeforeUnmount(() => observer?.disconnect())
     <canvas
       ref="canvas"
       class="wheel-canvas"
-      :style="{ transform: `rotate(${rotation}deg)`, transitionDuration: `${reducedMotion ? Math.min(duration, 100) : duration}ms` }"
+      :style="{ transform: `rotate(${rotation}deg)`, transitionDuration: `${resetInProgress ? 0 : reducedMotion ? Math.min(duration, 100) : duration}ms` }"
     />
     <button class="wheel-trigger" :disabled="disabled" :aria-busy="disabled" :aria-label="awaitingAdvance ? '进入下一项' : '转动命运轮盘'" @click="$emit('spin')">
       <span>{{ awaitingAdvance ? '继续' : '转动' }}</span>

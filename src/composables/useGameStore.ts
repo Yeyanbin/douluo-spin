@@ -1,5 +1,4 @@
 import { computed, readonly, shallowRef } from 'vue'
-import { findPool } from '@/domain/catalog'
 import { previewOptions } from '@/domain/engine'
 import { drawActiveTask, createInitialState, transition } from '@/domain/machine'
 import { createSeed } from '@/domain/random'
@@ -21,6 +20,7 @@ const wheelSpinNonce = shallowRef(0)
 const wheelResetNonce = shallowRef(0)
 const awaitingAdvance = shallowRef(false)
 let autoTimer: number | null = null
+let autoFrame: number | null = null
 const overrides = useWheelOverrides()
 
 function currentTask() {
@@ -79,13 +79,26 @@ function advance() {
   return true
 }
 
+function scheduleAutoSpin() {
+  if (!isAuto.value || hasEnded()) return
+  const delay = isTurbo.value ? 50 : 5_000
+  autoTimer = window.setTimeout(() => {
+    autoTimer = null
+    if (!isAuto.value || hasEnded()) return
+    advance()
+    // Let the wheel paint at its resting angle before the next spin begins.
+    autoFrame = window.requestAnimationFrame(() => {
+      autoFrame = null
+      if (isAuto.value && !hasEnded()) void spin()
+    })
+  }, delay)
+}
+
 async function spin() {
   if (isBusy.value || machine.value.value === 'ending' || machine.value.value === 'idle') return
   if (awaitingAdvance.value) {
     advance()
-    if (isAuto.value && !hasEnded()) {
-      autoTimer = window.setTimeout(spin, isTurbo.value ? 50 : 450)
-    }
+    scheduleAutoSpin()
     return
   }
   if (!apply({ type: 'ROLL' }, true)) return
@@ -109,10 +122,7 @@ async function spin() {
   }
 
   if (isAuto.value && !hasEnded()) {
-    autoTimer = window.setTimeout(() => {
-      advance()
-      void spin()
-    }, isTurbo.value ? 50 : 450)
+    scheduleAutoSpin()
   } else if (hasEnded()) {
     stopAuto()
   }
@@ -132,7 +142,9 @@ function stopAuto() {
   isAuto.value = false
   isTurbo.value = false
   if (autoTimer != null) window.clearTimeout(autoTimer)
+  if (autoFrame != null) window.cancelAnimationFrame(autoFrame)
   autoTimer = null
+  autoFrame = null
 }
 
 function hasEnded() {
