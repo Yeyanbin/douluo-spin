@@ -42,6 +42,7 @@ describe('finite state machine', () => {
     }).state
     expect(state.value).toBe('humanSetup')
     expect(state.context.gender).toBe('男')
+    expect(state.context.lastOptionId).toBe('male')
     expect(state.context.step).toBe(1)
   })
 

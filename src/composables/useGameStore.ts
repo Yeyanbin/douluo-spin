@@ -19,6 +19,7 @@ const wheelSelectedIndex = shallowRef(-1)
 const wheelSpinNonce = shallowRef(0)
 const wheelResetNonce = shallowRef(0)
 const awaitingAdvance = shallowRef(false)
+const MAX_REROLL_ATTEMPTS = 250
 let autoTimer: number | null = null
 let autoFrame: number | null = null
 const overrides = useWheelOverrides()
@@ -151,6 +152,27 @@ function hasEnded() {
   return machine.value.value === 'ending'
 }
 
+function retryRng(restored: MachineState, blocked: { pool: string; optionId?: string; result: string }): number {
+  let candidateRng = machine.value.context.rng
+  if (!blocked.pool || (!blocked.optionId && !blocked.result)) return candidateRng
+
+  for (let attempt = 0; attempt < MAX_REROLL_ATTEMPTS; attempt += 1) {
+    const trial = structuredClone(restored)
+    trial.context.rng = candidateRng
+    const rolling = transition(trial, { type: 'ROLL' })
+    if (!rolling.accepted || rolling.state.value === 'ending') return candidateRng
+    if (rolling.state.context.activeTask?.pool !== blocked.pool) return candidateRng
+
+    const { draw } = drawActiveTask(rolling.state, overrides.resolve)
+    const repeatsLastResult = blocked.optionId
+      ? draw.option.id === blocked.optionId
+      : draw.option.name === blocked.result
+    if (!repeatsLastResult) return candidateRng
+    candidateRng = draw.nextRng
+  }
+  return candidateRng
+}
+
 function undo() {
   if (isBusy.value || history.value.length === 0) return
   stopAuto()
@@ -158,7 +180,14 @@ function undo() {
   const previous = history.value[history.value.length - 1]
   history.value = history.value.slice(0, -1)
   if (previous) {
-    machine.value = structuredClone(previous)
+    const current = machine.value
+    const restored = structuredClone(previous)
+    restored.context.rng = retryRng(restored, {
+      pool: current.context.lastPool,
+      optionId: current.context.lastOptionId,
+      result: current.context.lastResult,
+    })
+    machine.value = restored
     persist()
     refreshWheel()
   }

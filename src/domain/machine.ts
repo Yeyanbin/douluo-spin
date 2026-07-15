@@ -106,6 +106,7 @@ function freshContext(): GameContext {
     queue: [],
     activeTask: null,
     lastPool: '',
+    lastOptionId: '',
     lastResult: '',
     lastProbability: null,
     logs: [],
@@ -410,6 +411,7 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
   const text = option.name
   context.step += 1
   context.lastPool = active.pool
+  context.lastOptionId = option.id
   context.lastResult = text
   context.lastProbability = probability
   context.activeTask = null

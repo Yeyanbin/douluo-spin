@@ -61,9 +61,10 @@ export function candidateDistribution(pool: WheelPool, task: RollTask, context: 
   const total = candidates.reduce((sum, option) => sum + optionWeight(option), 0)
   let startAngle = 0
   return candidates.map((option) => {
-    const probability = optionWeight(option) / total
+    const weight = optionWeight(option)
+    const probability = weight / total
     const endAngle = startAngle + probability * Math.PI * 2
-    const candidate = { option, weight: optionWeight(option), probability, startAngle, endAngle }
+    const candidate = { option, weight, probability, startAngle, endAngle }
     startAngle = endAngle
     return candidate
   })

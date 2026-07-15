@@ -151,6 +151,7 @@ export interface GameContext {
   queue: RollTask[]
   activeTask: RollTask | null
   lastPool: string
+  lastOptionId?: string
   lastResult: string
   lastProbability: number | null
   logs: ChronicleEntry[]
