@@ -2,6 +2,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { optionWeight } from '@/domain/catalog'
 import type { WheelOption } from '@/domain/types'
+import { advanceWheelRotation, targetRotationForSegment } from '@/utils/wheelGeometry'
 
 const props = defineProps<{
   options: readonly WheelOption[]
@@ -53,9 +54,14 @@ function fitLabel(context: CanvasRenderingContext2D, value: string, maxWidth: nu
   return fitted ? `${fitted}${suffix}` : ''
 }
 
-function shorten(value: string, max = 11) {
-  const clean = cleanLabel(value)
-  return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean
+function visualRandom() {
+  const cryptoApi = globalThis.crypto
+  if (cryptoApi?.getRandomValues) {
+    const values = new Uint32Array(1)
+    cryptoApi.getRandomValues(values)
+    return (values[0] ?? 0) / 0x100000000
+  }
+  return Math.random()
 }
 
 function draw() {
@@ -97,8 +103,8 @@ function draw() {
     context.lineWidth = Math.max(1, window.devicePixelRatio)
     context.stroke()
 
-    if (options.length <= 28) {
-      const fontSize = Math.max(10, Math.min(15, 260 / options.length)) * window.devicePixelRatio
+    {
+      const fontSize = 12 * window.devicePixelRatio
       const labelRadius = radius - 24 * window.devicePixelRatio
       const innerPadding = 68 * window.devicePixelRatio
       const maxLabelWidth = Math.max(0, labelRadius - innerPadding)
@@ -115,7 +121,7 @@ function draw() {
       context.textBaseline = 'middle'
       context.fillStyle = '#f8f5e9'
       context.font = `${fontSize}px system-ui`
-      const label = fitLabel(context, shorten(option.name), maxLabelWidth)
+      const label = fitLabel(context, option.name, maxLabelWidth)
       if (label) context.fillText(label, labelRadius, 0)
       context.restore()
     }
@@ -177,12 +183,10 @@ watch(() => props.spinNonce, () => {
   inspected.value = null
   const options = visibleOptions.value
   if (props.selectedIndex < 0 || options.length === 0) return
-  const totalWeight = options.reduce((sum, option) => sum + optionWeight(option), 0)
-  const previousWeight = options.slice(0, props.selectedIndex).reduce((sum, option) => sum + optionWeight(option), 0)
-  const selectedWeight = optionWeight(options[props.selectedIndex]!)
-  const normalized = ((rotation.value % 360) + 360) % 360
-  const target = 360 - ((previousWeight + selectedWeight / 2) / totalWeight) * 360
-  rotation.value += 2160 + ((target - normalized + 360) % 360)
+  const weights = options.map(optionWeight)
+  const target = targetRotationForSegment(weights, props.selectedIndex, visualRandom())
+  const fullTurns = 5 + Math.floor(visualRandom() * 4)
+  rotation.value = advanceWheelRotation(rotation.value, target, fullTurns)
 })
 
 function resetRotation() {

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { enabledOptions, findPool, poolsForTag, recategorizationCandidates, wheelData } from '@/domain/catalog'
+import { advanceWheelRotation, normalizeDegrees, targetRotationForSegment } from '@/utils/wheelGeometry'
 
 describe('wheel catalog', () => {
   it('preserves the complete embedded source data', () => {
@@ -39,5 +40,23 @@ describe('wheel catalog', () => {
   it('surfaces large wheels that should be considered for recategorization', () => {
     const candidates = recategorizationCandidates(3)
     expect(candidates.map((candidate) => candidate.pool.name)).toEqual(['兽武魂', '器武魂', '故事开始时的魂力等级（18岁限定）'])
+  })
+})
+
+describe('wheel geometry', () => {
+  it('targets any position inside the selected weighted segment at the bottom pointer', () => {
+    const weights = [1, 3, 6]
+    expect(targetRotationForSegment(weights, 1, 0)).toBeCloseTo(144)
+    expect(targetRotationForSegment(weights, 1, 0.5)).toBeCloseTo(90)
+    expect(targetRotationForSegment(weights, 1, 1)).toBeCloseTo(36)
+  })
+
+  it('keeps forward motion while varying full rotations', () => {
+    const fiveTurns = advanceWheelRotation(350, 20, 5)
+    const eightTurns = advanceWheelRotation(350, 20, 8)
+    expect(normalizeDegrees(fiveTurns)).toBeCloseTo(20)
+    expect(normalizeDegrees(eightTurns)).toBeCloseTo(20)
+    expect(eightTurns - fiveTurns).toBe(1080)
+    expect(fiveTurns).toBeGreaterThan(350)
   })
 })
