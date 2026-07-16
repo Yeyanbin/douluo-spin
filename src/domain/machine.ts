@@ -551,6 +551,16 @@ function applyCommon(context: GameContext, text: string) {
     const amount = Number(levelChange[2]) * (levelChange[1] === '+' ? 1 : -1)
     context.level = Math.max(1, Math.min(context.maxLevel, context.level + amount))
   }
+  const appearanceChange = text.match(/容貌\s*([+-])\s*(\d+)/)
+  if (appearanceChange && !/ex级?无法提升/.test(text)) {
+    const GRADES = ['F', 'E', 'D', 'C', 'B', 'A', 'S', 'EX']
+    const idx = GRADES.indexOf(context.appearance.toUpperCase())
+    if (idx >= 0) {
+      const delta = Number(appearanceChange[2]) * (appearanceChange[1] === '+' ? 1 : -1)
+      const clampedIdx = Math.max(0, Math.min(GRADES.length - 1, idx + delta))
+      context.appearance = GRADES[clampedIdx]!
+    }
+  }
 }
 
 function applyResult(state: MachineState, option: WheelOption, probability: number): MachineState {
@@ -759,6 +769,16 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
         state.value = 'transformedSetup'
       }
       break
+    case 'beastEncounter': {
+      if (!context.beast) break
+      const gainMatch = text.match(/修为\s*\+\s*(\d+)/)
+      const lossMatch = text.match(/修为掉落\s*(\d+)/) ?? text.match(/修为\s*-\s*(\d+)/)
+      let delta = 0
+      if (gainMatch && gainMatch[1]) delta = Number(gainMatch[1])
+      if (lossMatch && lossMatch[1]) delta = -Number(lossMatch[1])
+      if (delta !== 0) context.beast.cultivation = Math.max(10, context.beast.cultivation + delta)
+      break
+    }
     case 'beastGrowth': {
       if (!context.beast) break
       const before = context.beast.cultivation
