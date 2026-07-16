@@ -1,0 +1,386 @@
+{
+  "format": "douluo-spin-long-simulation-batch",
+  "formatVersion": 2,
+  "startedAt": "2026-07-16T16:31:11.212Z",
+  "batchSize": 10,
+  "sampling": "weighted (real-user simulation)",
+  "requestedSamples": 100,
+  "completedSamples": 100,
+  "passedSamples": 74,
+  "stats": {
+    "avgHumanLevel": "81.2",
+    "avgBeastYears": "80172"
+  },
+  "issueByCode": {
+    "no-impact-batch": [
+      {
+        "code": "no-impact-batch",
+        "roll": 53,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 51 次开始）",
+        "sample": 2,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 66,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 64 次开始）",
+        "sample": 2,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 69,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 67 次开始）",
+        "sample": 2,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 60,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 58 次开始）",
+        "sample": 4,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 63,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 61 次开始）",
+        "sample": 4,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 36,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 34 次开始）",
+        "sample": 8,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 53,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 51 次开始）",
+        "sample": 8,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 56,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 54 次开始）",
+        "sample": 8,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 45,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 43 次开始）",
+        "sample": 9,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 37,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 35 次开始）",
+        "sample": 10,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 29,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 27 次开始）",
+        "sample": 13,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 36,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 34 次开始）",
+        "sample": 13,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 41,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 39 次开始）",
+        "sample": 23,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 35,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 33 次开始）",
+        "sample": 24,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 28,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 26 次开始）",
+        "sample": 26,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 27,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 25 次开始）",
+        "sample": 27,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 39,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 37 次开始）",
+        "sample": 28,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 54,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 52 次开始）",
+        "sample": 28,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 57,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 55 次开始）",
+        "sample": 28,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 55,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 53 次开始）",
+        "sample": 29,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 58,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 56 次开始）",
+        "sample": 29,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 30,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 28 次开始）",
+        "sample": 33,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 41,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 39 次开始）",
+        "sample": 33,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 63,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 61 次开始）",
+        "sample": 33,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 66,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 64 次开始）",
+        "sample": 33,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 74,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 72 次开始）",
+        "sample": 35,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 31,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 29 次开始）",
+        "sample": 37,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 55,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 53 次开始）",
+        "sample": 39,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 58,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 56 次开始）",
+        "sample": 39,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 30,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 28 次开始）",
+        "sample": 40,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 36,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 34 次开始）",
+        "sample": 42,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 54,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 52 次开始）",
+        "sample": 42,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 57,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 55 次开始）",
+        "sample": 42,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 30,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 28 次开始）",
+        "sample": 44,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 26,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 24 次开始）",
+        "sample": 45,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 32,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 30 次开始）",
+        "sample": 48,
+        "route": "human"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 48,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 46 次开始）",
+        "sample": 51,
+        "route": "beast"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 67,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 65 次开始）",
+        "sample": 51,
+        "route": "beast"
+      },
+      {
+        "code": "no-impact-batch",
+        "roll": 70,
+        "message": "连续 3 个剧情/战斗事件均无反馈（从第 68 次开始）",
+        "sample": 51,
+        "route": "beast"
+      }
+    ],
+    "god-condition-mismatch": [
+      {
+        "code": "god-condition-mismatch",
+        "message": "武魂阶位 1 不足以匹配 一级 神考",
+        "sample": 4,
+        "route": "human"
+      },
+      {
+        "code": "god-condition-mismatch",
+        "message": "武魂阶位 3 不足以匹配 一级 神考",
+        "sample": 9,
+        "route": "human"
+      },
+      {
+        "code": "god-condition-mismatch",
+        "message": "武魂阶位 1 不足以匹配 二级 神考",
+        "sample": 20,
+        "route": "human"
+      },
+      {
+        "code": "god-condition-mismatch",
+        "message": "武魂阶位 3 不足以匹配 一级 神考",
+        "sample": 34,
+        "route": "human"
+      },
+      {
+        "code": "god-condition-mismatch",
+        "message": "武魂阶位 4 不足以匹配 神王 神考",
+        "sample": 85,
+        "route": "beast"
+      }
+    ],
+    "appearance-unchanged": [
+      {
+        "code": "appearance-unchanged",
+        "message": "30级以上容貌从未变化",
+        "sample": 10,
+        "route": "human"
+      },
+      {
+        "code": "appearance-unchanged",
+        "message": "30级以上容貌从未变化",
+        "sample": 24,
+        "route": "human"
+      },
+      {
+        "code": "appearance-unchanged",
+        "message": "30级以上容貌从未变化",
+        "sample": 28,
+        "route": "human"
+      },
+      {
+        "code": "appearance-unchanged",
+        "message": "30级以上容貌从未变化",
+        "sample": 45,
+        "route": "human"
+      }
+    ],
+    "stuck-level": [
+      {
+        "code": "stuck-level",
+        "roll": 39,
+        "message": "第 36-39 次投掷内经过 3+ 次时间跳跃但等级未变化。",
+        "sample": 27,
+        "route": "human"
+      },
+      {
+        "code": "stuck-level",
+        "roll": 69,
+        "message": "第 66-69 次投掷内经过 3+ 次时间跳跃但等级未变化。",
+        "sample": 39,
+        "route": "human"
+      },
+      {
+        "code": "stuck-level",
+        "roll": 125,
+        "message": "第 122-125 次投掷内经过 3+ 次时间跳跃但等级未变化。",
+        "sample": 72,
+        "route": "beast"
+      },
+      {
+        "code": "stuck-level",
+        "roll": 130,
+        "message": "第 127-130 次投掷内经过 3+ 次时间跳跃但等级未变化。",
+        "sample": 72,
+        "route": "beast"
+      },
+      {
+        "code": "stuck-level",
+        "roll": 135,
+        "message": "第 132-135 次投掷内经过 3+ 次时间跳跃但等级未变化。",
+        "sample": 72,
+        "route": "beast"
+      }
+    ]
+  }
+}

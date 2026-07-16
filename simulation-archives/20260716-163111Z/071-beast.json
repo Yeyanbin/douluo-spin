@@ -1,0 +1,278 @@
+{
+  "format": "douluo-spin-long-simulation",
+  "formatVersion": 2,
+  "generatedAt": "2026-07-16T16:31:11.952Z",
+  "seed": "mrnq7ey5-0vzat0l1g5uckh-batch-071",
+  "requestedRolls": 500,
+  "executedRolls": 10,
+  "completed": true,
+  "samplingMode": "weighted",
+  "audit": {
+    "passed": true,
+    "issues": []
+  },
+  "biography": "《斗罗大陆 · 命运轮盘人物传记》\n\n【命运档案】\n命运种子：mrnq7ey5-0vzat0l1g5uckh-batch-071\n姓名：命运旅者\n路线：魂兽\n时间坐标：唐三 26 岁\n实际年龄：未确定\n当前境界：35年修为\n命运状态：你走过斗罗大陆主线年代，命运进入新的时代。\n阵营履历：落日森林\n\n【人物身份】\n魂兽类型：蛇类\n本体种族：邪毒魔龙蛇\n生存区域：落日森林\n\n【能力与机缘】\n血脉：邪毒魔龙蛇\n法则：无\n魂骨：无\n神考：无\n\n【魂环明细】\n- 暂无魂环记录\n\n【命运纪事】\n时间未定｜命运启封｜种子：mrnq7ey5-0vzat0l1g5uckh-batch-071\n唐三 6 岁｜基础设定1:魂兽穿越时期｜唐三6岁\n唐三 6 岁｜基础设定2:魂兽性别｜雌性\n唐三 6 岁｜基础设定3:你是什么级别的魂兽｜十年魂兽\n唐三 6 岁｜基础设定4:你是什么类型的魂兽｜蛇类\n唐三 6 岁｜蛇类魂兽初始池子｜邪毒魔龙蛇\n唐三 6 岁｜基础设定5:你的生存区域（海魂兽默认大海无需抽取该池）｜落日森林\n唐三 16 岁｜10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）｜年限修为+20年\n唐三 16 岁｜十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）｜遭遇强敌，跑得很快，无事发生（植物系魂兽抽到则修为掉落10年）\n唐三 26 岁｜10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）｜年限修为+25年\n唐三 26 岁｜十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）｜遭遇百年魂兽，你受到重创，修为掉落10年（拥有龙族血脉则无伤无惩罚）\n唐三 26 岁｜命运终章｜你走过斗罗大陆主线年代，命运进入新的时代。",
+  "trace": [
+    {
+      "roll": 1,
+      "pool": "基础设定1:魂兽穿越时期",
+      "optionId": "7f4728",
+      "option": "唐三6岁",
+      "probability": 0.008403361344537815,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "基础设定2:魂兽性别",
+      "impact": "无变化"
+    },
+    {
+      "roll": 2,
+      "pool": "基础设定2:魂兽性别",
+      "optionId": "e47b9d",
+      "option": "雌性",
+      "probability": 0.4647887323943662,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "基础设定3:你是什么级别的魂兽",
+      "impact": "无变化"
+    },
+    {
+      "roll": 3,
+      "pool": "基础设定3:你是什么级别的魂兽",
+      "optionId": "261e91",
+      "option": "十年魂兽",
+      "probability": 0.8072174738841406,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "基础设定4:你是什么类型的魂兽",
+      "impact": "无变化"
+    },
+    {
+      "roll": 4,
+      "pool": "基础设定4:你是什么类型的魂兽",
+      "optionId": "96d1b2",
+      "option": "蛇类",
+      "probability": 0.09345794392523364,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "蛇类魂兽初始池子",
+      "impact": "无变化"
+    },
+    {
+      "roll": 5,
+      "pool": "蛇类魂兽初始池子",
+      "optionId": "78ad2e",
+      "option": "邪毒魔龙蛇",
+      "probability": 0.01818181818181818,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "基础设定5:你的生存区域（海魂兽默认大海无需抽取该池）",
+      "impact": "无变化"
+    },
+    {
+      "roll": 6,
+      "pool": "基础设定5:你的生存区域（海魂兽默认大海无需抽取该池）",
+      "optionId": "0c52f0",
+      "option": "落日森林",
+      "probability": 0.28205128205128205,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": null,
+      "impact": "无变化"
+    },
+    {
+      "roll": 7,
+      "pool": "10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）",
+      "optionId": "6cda4d",
+      "option": "年限修为+20年",
+      "probability": 0.1917808219178082,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+      "impact": "修为+20"
+    },
+    {
+      "roll": 8,
+      "pool": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+      "optionId": "87577c",
+      "option": "遭遇强敌，跑得很快，无事发生（植物系魂兽抽到则修为掉落10年）",
+      "probability": 0.3287671232876712,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）",
+      "impact": "修为-10"
+    },
+    {
+      "roll": 9,
+      "pool": "10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）",
+      "optionId": "e96950",
+      "option": "年限修为+25年",
+      "probability": 0.1643835616438356,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+      "impact": "修为+25"
+    },
+    {
+      "roll": 10,
+      "pool": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+      "optionId": "e844da",
+      "option": "遭遇百年魂兽，你受到重创，修为掉落10年（拥有龙族血脉则无伤无惩罚）",
+      "probability": 0.0958904109589041,
+      "level": 0,
+      "soulBoneCount": 0,
+      "queuedNextPool": null,
+      "impact": "修为-10"
+    }
+  ],
+  "state": {
+    "value": "ending",
+    "context": {
+      "seed": "mrnq7ey5-0vzat0l1g5uckh-batch-071",
+      "rng": 2979216297,
+      "route": "beast",
+      "name": "命运旅者",
+      "step": 10,
+      "age": null,
+      "tangAge": 26,
+      "gender": "雌性",
+      "appearance": "",
+      "level": 0,
+      "maxLevel": 99,
+      "faction": "",
+      "branch": null,
+      "martialSoulTypes": [],
+      "martialSouls": [],
+      "talents": [],
+      "traits": [],
+      "domains": [],
+      "rings": [],
+      "soulBones": [],
+      "beast": {
+        "cultivation": 35,
+        "species": "邪毒魔龙蛇",
+        "type": "蛇类",
+        "area": "落日森林",
+        "bloodlines": [
+          "邪毒魔龙蛇"
+        ],
+        "laws": [],
+        "pendingTribulation": null
+      },
+      "godTrial": null,
+      "queue": [],
+      "activeTask": null,
+      "lastPool": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+      "lastOptionId": "e844da",
+      "lastResult": "遭遇百年魂兽，你受到重创，修为掉落10年（拥有龙族血脉则无伤无惩罚）",
+      "lastProbability": 0.0958904109589041,
+      "logs": [
+        {
+          "id": "0-0-1784219471952",
+          "step": 0,
+          "title": "命运启封",
+          "text": "种子：mrnq7ey5-0vzat0l1g5uckh-batch-071",
+          "tone": "major",
+          "time": "时间未定"
+        },
+        {
+          "id": "1-1-1784219471952",
+          "step": 1,
+          "title": "基础设定1:魂兽穿越时期",
+          "text": "唐三6岁",
+          "tone": "normal",
+          "time": "唐三 6 岁"
+        },
+        {
+          "id": "2-2-1784219471952",
+          "step": 2,
+          "title": "基础设定2:魂兽性别",
+          "text": "雌性",
+          "tone": "normal",
+          "time": "唐三 6 岁"
+        },
+        {
+          "id": "3-3-1784219471952",
+          "step": 3,
+          "title": "基础设定3:你是什么级别的魂兽",
+          "text": "十年魂兽",
+          "tone": "normal",
+          "time": "唐三 6 岁"
+        },
+        {
+          "id": "4-4-1784219471952",
+          "step": 4,
+          "title": "基础设定4:你是什么类型的魂兽",
+          "text": "蛇类",
+          "tone": "normal",
+          "time": "唐三 6 岁"
+        },
+        {
+          "id": "5-5-1784219471952",
+          "step": 5,
+          "title": "蛇类魂兽初始池子",
+          "text": "邪毒魔龙蛇",
+          "tone": "normal",
+          "time": "唐三 6 岁"
+        },
+        {
+          "id": "6-6-1784219471952",
+          "step": 6,
+          "title": "基础设定5:你的生存区域（海魂兽默认大海无需抽取该池）",
+          "text": "落日森林",
+          "tone": "normal",
+          "time": "唐三 6 岁"
+        },
+        {
+          "id": "7-7-1784219471952",
+          "step": 7,
+          "title": "10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）",
+          "text": "年限修为+20年",
+          "tone": "normal",
+          "time": "唐三 16 岁"
+        },
+        {
+          "id": "8-8-1784219471952",
+          "step": 8,
+          "title": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+          "text": "遭遇强敌，跑得很快，无事发生（植物系魂兽抽到则修为掉落10年）",
+          "tone": "bad",
+          "time": "唐三 16 岁"
+        },
+        {
+          "id": "9-9-1784219471952",
+          "step": 9,
+          "title": "10年后，你的成长（十年魂兽限定，已达百年魂兽则不可再抽取该池）",
+          "text": "年限修为+25年",
+          "tone": "normal",
+          "time": "唐三 26 岁"
+        },
+        {
+          "id": "10-10-1784219471952",
+          "step": 10,
+          "title": "十年魂兽遭遇剧情（每经历1次时间跳跃可抽取该池）",
+          "text": "遭遇百年魂兽，你受到重创，修为掉落10年（拥有龙族血脉则无伤无惩罚）",
+          "tone": "bad",
+          "time": "唐三 26 岁"
+        },
+        {
+          "id": "10-11-1784219471952",
+          "step": 10,
+          "title": "命运终章",
+          "text": "你走过斗罗大陆主线年代，命运进入新的时代。",
+          "tone": "major",
+          "time": "唐三 26 岁"
+        }
+      ],
+      "flags": {
+        "beastPeriod": "唐三6岁"
+      },
+      "alive": true,
+      "ending": "你走过斗罗大陆主线年代，命运进入新的时代。",
+      "resumeState": null,
+      "settings": {
+        "softenText": false,
+        "spinDuration": 900
+      }
+    }
+  }
+}
