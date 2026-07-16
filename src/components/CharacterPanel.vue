@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { Shield, Sparkles, Swords } from 'lucide-vue-next'
 import type { GameContext } from '@/domain/types'
 import { calculateCombatPower } from '@/domain/engine'
-import { highestMartialSoulTier } from '@/domain/martialSoulTiers'
+import { highestMartialSoulTier, getMartialSoulTier } from '@/domain/martialSoulTiers'
 
 const props = defineProps<{
   context: GameContext
@@ -37,6 +37,13 @@ const timeLabel = computed(() => {
 const soulValues = computed(() => props.context.beast
   ? [props.context.beast.species, ...props.context.beast.bloodlines].filter(Boolean)
   : [...props.context.martialSoulTypes, ...props.context.martialSouls])
+const soulChips = computed(() => {
+  if (props.context.beast) return soulValues.value
+  return props.context.martialSouls.map((s) => {
+    const tier = getMartialSoulTier(s)
+    return `${s}【${TIER_LABELS[tier] ?? ''}${tier}】`
+  })
+})
 const traitValues = computed(() => [...props.context.talents, ...props.context.traits, ...props.context.domains])
 const gearValues = computed(() => [
   ...props.context.soulBones,
@@ -85,7 +92,7 @@ const ringDetails = computed(() => props.context.rings.map((ring) => ({
 
     <div class="chip-section">
       <h3><Swords :size="15" /> 武魂与血脉 <span v-if="topTier > 0" class="tier-badge">阶位：{{ topTierLabel }}{{ topTier }}</span></h3>
-      <div class="chips"><span v-for="value in soulValues" :key="value" class="chip">{{ value }}</span><span v-if="!soulValues.length" class="empty">暂无</span></div>
+      <div class="chips"><span v-for="value in soulChips" :key="value" class="chip">{{ value }}</span><span v-if="!soulChips.length" class="empty">暂无</span></div>
     </div>
     <div class="chip-section">
       <h3><Sparkles :size="15" /> 天赋、称号与领域</h3>

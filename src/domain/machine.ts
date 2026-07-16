@@ -16,7 +16,7 @@ import {
   toolMartialSoulPoolName,
 } from './martialSoulCategories'
 import { hashSeed, nextRandom } from './random'
-import { highestMartialSoulTier } from './martialSoulTiers'
+import { getMartialSoulTier, highestMartialSoulTier } from './martialSoulTiers'
 import type {
   ChronicleEntry,
   GameContext,
@@ -611,6 +611,10 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
         task('基础设定', '基础设定5:武魂天赋', 'martialType'),
         task('基础设定', '基础设定5:武魂天赋', 'martialType'),
       )
+      if (/人兽混血/.test(text)) {
+        addUnique(context.martialSoulTypes, '兽武魂')
+        context.queue.unshift(task('武魂池子', '兽武魂分类', 'martialSoulCategory'))
+      }
       if (/神明转世/.test(text)) context.queue.unshift(task('神考抽取池', '神考池子', 'godTier'))
       break
     case 'growthChance':
@@ -654,6 +658,10 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
       break
     case 'initialPower':
       context.level = /无魂力/.test(text) ? 0 : firstNumber(text, 1)
+      if (context.martialSouls.length > 0) {
+        const best = context.martialSouls.reduce((a, b) => getMartialSoulTier(a) > getMartialSoulTier(b) ? a : b)
+        context.lastResult = `${context.lastResult}（受${best}武魂影响）`
+      }
       break
     case 'faction':
       setFaction(context, text)
