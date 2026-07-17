@@ -579,4 +579,93 @@ describe('finite state machine', () => {
     expect(resolved.context.flags).toMatchObject({ 'faction:6': true, 'faction:12': true, 'faction:18': true })
     expect(resolved.context.queue.some((item) => item.pool === '加入的势力（12岁限定）')).toBe(false)
   })
+
+  it('triggers second martial soul draw for 亚龙血脉 special talent', () => {
+    const state = startHuman() as MachineState
+    state.value = 'humanAdventure'
+    state.context.queue = [{
+      id: 'special-talent',
+      tag: '特殊天赋',
+      pool: '特殊天赋',
+      handler: 'specialTalent',
+    }]
+
+    const rolling = transition(state, { type: 'ROLL' }).state
+    const resolved = transition(rolling, {
+      type: 'RESOLVE',
+      option: { id: 'sub-dragon', name: '亚龙血脉（去魂兽初始池抽取一个亚龙种作为你的第二武魂）' },
+      probability: 0.05,
+    }).state
+
+    expect(resolved.context.talents).toContain('亚龙血脉')
+    expect(resolved.context.martialSoulTypes).toContain('兽武魂')
+    expect(resolved.context.queue.some((item) => item.pool === '亚龙种魂兽初始池子')).toBe(true)
+    expect(resolved.context.queue.some((item) => item.handler === 'martialSoul')).toBe(true)
+  })
+
+  it('skips tournament result pools when player declines participation in 剧情3', () => {
+    const state = startHuman() as MachineState
+    state.value = 'humanAdventure'
+    state.context.queue = [{
+      id: 'story-tournament',
+      tag: '《斗罗大陆》剧情第一分支',
+      pool: '剧情3:是否参与参加团队核心竞争（魂师大赛前限定抽取池，此时唐三14岁）',
+      handler: 'story',
+      meta: { milestone: 14 },
+    }]
+    state.context.level = 25
+    state.context.age = 14
+    state.context.tangAge = 14
+    state.context.branch = 1
+    state.context.flags = { 'faction:12': true, 'story:1@12': true }
+
+    const rolling = transition(state, { type: 'ROLL' }).state
+    const resolved = transition(rolling, {
+      type: 'RESOLVE',
+      option: { id: 'no-interest', name: '否，你不感兴趣（默认不参加魂师学院大赛剧情）' },
+      probability: 0.2,
+    }).state
+
+    expect(resolved.context.flags._skipTournament).toBe(true)
+
+    // 模拟队列清空后进入下一个里程碑
+    resolved.context.queue = []
+    resolved.context.tangAge = 14
+    const nextRoll = transition(resolved, { type: 'ROLL' }).state
+
+    // 剧情4/5/6 不应出现在队列中
+    const queuedPools = [nextRoll.context.activeTask?.pool, ...nextRoll.context.queue.map((t) => t.pool)]
+    expect(queuedPools.some((p) => p?.includes('剧情4:魂师学院大赛预选赛结果'))).toBe(false)
+    expect(queuedPools.some((p) => p?.includes('剧情5:单人赛结果'))).toBe(false)
+    expect(queuedPools.some((p) => p?.includes('剧情6:决赛结果'))).toBe(false)
+  })
+
+  it('skips battle result pools when player declines 天斗宫变 in 剧情7', () => {
+    const state = startHuman() as MachineState
+    state.value = 'humanAdventure'
+    state.context.queue = [{
+      id: 'story-battle',
+      tag: '《斗罗大陆》剧情第一分支',
+      pool: '剧情14:是否参与天斗宫变（此时唐三20岁）',
+      handler: 'story',
+      meta: { milestone: 20 },
+    }]
+    state.context.level = 50
+    state.context.age = 20
+    state.context.tangAge = 20
+    state.context.branch = 1
+    state.context.flags = {
+      'faction:12': true, 'faction:18': true, slaughter: true,
+      'story:1@12': true, 'story:1@14': true, 'story:1@19': true,
+    }
+
+    const rolling = transition(state, { type: 'ROLL' }).state
+    const resolved = transition(rolling, {
+      type: 'RESOLVE',
+      option: { id: 'no-battle', name: '否，你不感兴趣' },
+      probability: 0.3,
+    }).state
+
+    expect(resolved.context.flags._skipBattle).toBe(true)
+  })
 })

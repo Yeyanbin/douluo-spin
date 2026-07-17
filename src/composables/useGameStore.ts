@@ -98,11 +98,7 @@ function scheduleAutoSpin() {
 
 async function spin() {
   if (isBusy.value || machine.value.value === 'ending' || machine.value.value === 'idle') return
-  if (awaitingAdvance.value) {
-    advance()
-    scheduleAutoSpin()
-    return
-  }
+  if (awaitingAdvance.value) advance()
   if (!apply({ type: 'ROLL' }, true)) return
 
   isBusy.value = true
@@ -135,6 +131,7 @@ function toggleAuto(turbo = false) {
     stopAuto()
     return
   }
+  if (turbo && !window.confirm('确定开启极速结算？将自动快速完成所有命运步骤。')) return
   isAuto.value = true
   isTurbo.value = turbo
   void spin()

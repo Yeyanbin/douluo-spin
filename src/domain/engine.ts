@@ -267,7 +267,7 @@ export function isEligible(option: WheelOption, task: RollTask, context: GameCon
     const required = text.match(/要求拥有【([^】]+)】/)?.[1]
     if (required && !allTraits.includes(required)) return false
   }
-  if (/无法重复获得|已拥有则重抽/.test(text)) {
+  if (/无法重复获得|已拥有则重抽|无法叠加则重抽/.test(text)) {
     const named = [...text.matchAll(/【([^】]+)】/g)].map((match) => match[1]).filter((name): name is string => Boolean(name))
     if (named.some((name) => allTraits.includes(name))) return false
   }

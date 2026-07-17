@@ -7755,6 +7755,12 @@
           "weight": 15
         },
         {
+          "id": "f3a7b2",
+          "name": "你被比比东重创，侥幸逃脱（85+级限定，否则重抽），等级-2",
+          "enabled": true,
+          "weight": 25
+        },
+        {
           "id": "5c8b6f",
           "name": "你被比比东斩杀（99级或者神级可以重抽）",
           "enabled": true,
@@ -9722,6 +9728,12 @@
           "weight": 15
         },
         {
+          "id": "f3a7b1",
+          "name": "你被比比东重创，侥幸逃脱（85+级限定，否则重抽），等级-2",
+          "enabled": true,
+          "weight": 25
+        },
+        {
           "id": "9339f9",
           "name": "你被比比东斩杀（99级或者神级可以重抽）",
           "enabled": true,
@@ -9957,13 +9969,33 @@
           "id": "dd7a55",
           "name": "是，跟随天斗军团一起进入战场",
           "enabled": true,
-          "weight": 35
+          "weight": 30
         },
         {
           "id": "ba343a",
           "name": "是，但你特立独行，不跟随大队伍一起进入战场",
           "enabled": true,
-          "weight": 40
+          "weight": 35
+        },
+        {
+          "id": "b1c2d3",
+          "name": "你选择加入武魂殿阵营，对战唐三",
+          "weight": 6
+        },
+        {
+          "id": "b2c3d4",
+          "name": "你选择加入武魂殿阵营，对战史莱克七怪其余成员",
+          "weight": 6
+        },
+        {
+          "id": "b3c4d5",
+          "name": "你跟随天斗帝国一方，但不参加最终神战，选择留在后方",
+          "weight": 8
+        },
+        {
+          "id": "b4c5d6",
+          "name": "你双方都不参加，选择闭关修炼，等级+5",
+          "weight": 10
         }
       ],
       "tags": [
@@ -15861,6 +15893,52 @@
       "created_at": "2026-07-02T14:52:32.000Z",
       "updated_at": "2026-07-06T12:37:13.000Z",
       "last_used_at": "2026-07-03T16:03:26.008301Z"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "icon": null,
+      "name": "海神岛修行（有神考限定）",
+      "description": "你前往海神岛，在海神之光的压力下苦修。黄级考核虽不授予神位，却能大幅提升魂力。",
+      "options": [
+        {
+          "id": "sg001",
+          "name": "等级+12",
+          "weight": 10
+        },
+        {
+          "id": "sg002",
+          "name": "等级+10",
+          "weight": 20
+        },
+        {
+          "id": "sg003",
+          "name": "等级+8",
+          "weight": 30
+        },
+        {
+          "id": "sg004",
+          "name": "等级+6",
+          "weight": 25
+        },
+        {
+          "id": "sg005",
+          "name": "等级+4",
+          "weight": 10
+        },
+        {
+          "id": "sg006",
+          "name": "考核失败，你被驱逐出海神岛，无收获",
+          "weight": 5
+        }
+      ],
+      "tags": [],
+      "language": "zh",
+      "rank": "0|hzzzmv:",
+      "allow_repeats": null,
+      "hide_weights": null,
+      "created_at": "2026-07-17T08:00:00.000Z",
+      "updated_at": "2026-07-17T08:00:00.000Z",
+      "last_used_at": null
     },
     {
       "id": "b65b4815-f0fc-4c70-b5c5-24af21a0d939",

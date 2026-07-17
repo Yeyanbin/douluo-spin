@@ -381,7 +381,12 @@ function nextStoryTasks(context: GameContext): RollTask[] {
   return poolsForTag(tagName)
     .filter((pool) => {
       const number = storyNumber(pool.name)
-      return number != null && number >= minimum && number <= maximum
+      if (number == null || number < minimum || number > maximum) return false
+      // 不参加魂师大赛时，跳过比赛结果剧情
+      if (context.flags._skipTournament && number >= 4 && number <= 6) return false
+      // 不参与天斗宫变时，跳过战斗结果剧情
+      if (context.flags._skipBattle && number >= 8 && number <= 10) return false
+      return true
     })
     .sort((left, right) => (storyNumber(left.name) ?? 0) - (storyNumber(right.name) ?? 0))
     .map((pool) => task(tagName, pool.name, 'story', { milestone: time }))
@@ -486,6 +491,26 @@ function prepareNext(state: MachineState): MachineState {
             return state
           }
         }
+        if (context.level >= 80 && !context.godTrial && !context.flags._god80Triggered) {
+          context.flags._god80Triggered = true
+          const rng = nextRandom(context.rng)
+          context.rng = rng.state
+          if (rng.value < 0.5) {
+            context.flags._noGodCount = 0
+            context.queue.push(task('神考抽取池', '99级神考触发', 'godTier'))
+            return state
+          }
+        }
+        if (context.level >= 70 && !context.godTrial && !context.flags._god70Triggered) {
+          context.flags._god70Triggered = true
+          const rng = nextRandom(context.rng)
+          context.rng = rng.state
+          if (rng.value < 0.5) {
+            context.flags._noGodCount = 0
+            context.queue.push(task('神考抽取池', '99级神考触发', 'godTier'))
+            return state
+          }
+        }
         const faction = nextFactionTask(context)
         if (faction) context.queue.push(faction)
         else {
@@ -504,6 +529,10 @@ function prepareNext(state: MachineState): MachineState {
             else {
               const storyTasks = nextStoryTasks(context)
               if (storyTasks.length > 0) context.queue.push(...storyTasks)
+              else if (context.godTrial && context.level >= 70 && context.level <= 95 && !context.flags._seaGodTrained) {
+                context.flags._seaGodTrained = true
+                context.queue.push(task('海神岛修行', '海神岛修行（有神考限定）', 'growth'))
+              }
               else context.queue.push(task('时间跳跃', humanGrowthPool(context), 'humanTime'))
             }
           }
@@ -616,6 +645,18 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
         context.queue.unshift(task('武魂池子', '兽武魂分类', 'martialSoulCategory'))
       }
       if (/神明转世/.test(text)) context.queue.unshift(task('神考抽取池', '神考池子', 'godTier'))
+      if (/亚龙血脉/.test(text)) {
+        addUnique(context.martialSoulTypes, '兽武魂')
+        context.queue.unshift(task('魂兽种类初始池', '亚龙种魂兽初始池子', 'martialSoul'))
+      }
+      if (/真龙血脉/.test(text)) {
+        addUnique(context.martialSoulTypes, '兽武魂')
+        context.queue.unshift(task('魂兽种类初始池', '纯血龙种魂兽初始池', 'martialSoul'))
+      }
+      if (/地龙血脉/.test(text)) {
+        addUnique(context.martialSoulTypes, '兽武魂')
+        context.queue.unshift(task('魂兽种类初始池', '地龙种魂兽初始池子', 'martialSoul'))
+      }
       break
     case 'growthChance':
       if (/^是|获得/.test(text)) {
@@ -634,7 +675,7 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
           years: context.rings[context.rings.length - 1]?.years ?? 0,
         }))
       }
-      if (/获得神考/.test(text)) {
+      if (/获得神考/.test(text) && !context.godTrial) {
         const godPool = context.level >= 99 ? '99级神考触发' : '神考池子'
         context.queue.unshift(task('神考抽取池', godPool, 'godTier'))
         context.flags._noGodCount = 0
@@ -827,6 +868,11 @@ function applyResult(state: MachineState, option: WheelOption, probability: numb
       if (active.pool.startsWith('是否进入杀戮之都') && /^是/.test(text)) {
         context.queue.unshift(task('杀戮之都', '是否获得杀神领域', 'domain'))
       }
+      // 参与类选项选择"否"时，跳过对应的结果剧情
+      if (/是否参与.*团队核心竞争/.test(active.pool) && /否|不感兴趣/.test(text))
+        context.flags._skipTournament = true
+      if (/是否参与.*天斗宫变/.test(active.pool) && /否|不感兴趣/.test(text))
+        context.flags._skipBattle = true
       break
   }
 
