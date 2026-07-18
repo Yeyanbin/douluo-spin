@@ -15,6 +15,13 @@ export const humanProgressionProcess: ProcessManager = {
     const cycle = state.progression.growthCycles + 1
     const completed: DomainEvent = { type: 'growth.completed', route: state.route ?? 'human', cycle }
     if (state.stats.level >= 99) {
+      const mainStoryNodes = state.progression.storyNodes.filter((id) => /^entity\.story-node\.\d+$/.test(id)).length
+      if (mainStoryNodes < 4) {
+        return [
+          completed,
+          { type: 'task.scheduled', task: task(`${state.route}.growth.${cycle + 1}`, poolId('pool.human.growth'), 'human-progression') },
+        ]
+      }
       if (state.stats['tang-age'] >= 26) {
         return [
           completed,

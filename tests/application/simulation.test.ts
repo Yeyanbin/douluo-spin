@@ -69,6 +69,15 @@ describe('v0.3 complete deterministic journeys', () => {
     expect(result.state.ending).toEqual({ endingId: 'ending.god-ascension', alive: true })
   })
 
+  it('completes all four story nodes when transformed breakthroughs reach level 100 early', () => {
+    const result = simulate('v03-final-1338d1b-batch-13-sample-12', 'beast')
+    expect(result.audit).toEqual({ passed: true, issues: [] })
+    expect(result.state.route).toBe('transformed')
+    expect(result.state.progression.storyNodes.filter((id) => /^entity\.story-node\.\d+$/.test(id))).toHaveLength(4)
+    expect(result.state.progression.godTrial).toMatchObject({ origin: 'inheritance', completed: 3 })
+    expect(result.state.ending).toEqual({ endingId: 'ending.god-ascension', alive: true })
+  })
+
   it('finishes human setup before scheduling the first story node', () => {
     const result = simulate('v03-preflight-dev5-batch-01-sample-03', 'human')
     const pools = result.trace.map((entry) => entry.poolId)

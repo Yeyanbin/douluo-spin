@@ -11,7 +11,7 @@ export interface SimulationTraceEntry {
 }
 
 export interface SimulationIssue {
-  readonly code: 'incomplete' | 'agenda-after-ending' | 'route-mismatch' | 'missing-ending' | 'invalid-task-order' | 'incompatible-beast-identity'
+  readonly code: 'incomplete' | 'agenda-after-ending' | 'route-mismatch' | 'missing-ending' | 'invalid-task-order' | 'incompatible-beast-identity' | 'missing-story-node'
   readonly message: string
 }
 
@@ -108,6 +108,12 @@ export function simulateJourney(
   }
   issues.push(...auditTraceOrder(state.route, trace, levelAtAdventureStart(service.eventLog)))
   issues.push(...auditBeastIdentity(state))
+  const inheritedAscension = state.ending?.endingId === 'ending.god-ascension'
+    && state.progression.godTrial?.origin === 'inheritance'
+  const mainStoryNodes = state.progression.storyNodes.filter((id) => /^entity\.story-node\.\d+$/.test(id)).length
+  if (inheritedAscension && mainStoryNodes < 4) {
+    issues.push({ code: 'missing-story-node', message: `Inherited ascension completed after only ${mainStoryNodes} main story nodes` })
+  }
   return {
     seed: options.seed,
     requestedRoute: options.route,
