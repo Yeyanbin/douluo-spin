@@ -82,11 +82,12 @@ describe('v0.3 original-content deterministic journeys', () => {
     ]))
   })
 
-  it('keeps the inherited god-trial UI regression seed on an ascension path', () => {
+  it('fails inherited godhood when the final god-armor reward lacks six soul bones', () => {
     const result = simulate('v03-recovery-human-001', 'human')
 
     expect(result.audit).toEqual({ passed: true, issues: [] })
-    expect(result.state.ending).toEqual({ endingId: 'ending.god-ascension', alive: true })
+    expect(result.state.ending).toEqual({ endingId: 'ending.death', alive: false })
+    expect(result.state.entities['soul-bone'].length).toBeLessThan(6)
     expect(result.trace.some((entry) => entry.poolId.startsWith('pool.god-trial.'))).toBe(true)
   })
 
@@ -133,6 +134,7 @@ describe('v0.3 original-content deterministic journeys', () => {
     const biography = formatBiography(view)
 
     expect(view.route).toBe(result.state.route)
+    expect(view.name).toMatch(/^斗罗历\d+(?:\.\d)?年$/)
     expect(view.rings).toHaveLength(result.state.progression.rings.length)
     expect(view.logs).toHaveLength(result.trace.length)
     expect(view.martialSoulDetails).toHaveLength(view.martialSouls.length)
@@ -142,10 +144,15 @@ describe('v0.3 original-content deterministic journeys', () => {
     expect(biography).toContain(`路线：${result.state.route}`)
     expect(biography).toContain(`终局：${view.ending}`)
     expect(biography).toContain('最高武魂阶位：')
+    expect(biography).toContain('魂骨：')
+    expect(biography).toContain('领域：')
+    expect(biography).toContain('天赋/称号/奖励：')
     expect(view.combatPowerBreakdown.total).toBe(view.combatPower)
     expect(biography).toContain(`战力值：${view.combatPower}`)
     expect(biography).toContain('战力公式：round(')
     expect(biography).toContain('战力构成：等级')
-    expect(biography.match(/^### 第/gm)).toHaveLength(result.trace.length)
+    expect(biography.match(/^#### 第/gm)).toHaveLength(result.trace.length)
+    expect(biography).toMatch(/^### 斗罗历\d+(?:\.\d)?年/gm)
+    expect(biography).toMatch(/^#### 第\d+回 · \d+(?:\.\d)?岁，\d+(?:\.\d)?级 · /gm)
   })
 })

@@ -16039,10 +16039,130 @@
       }
     },
     {
+      "id": "entity.legacy.trait.cdbaab86babceb23",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：神铠",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.34e7996c3b61d32e",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：神器胚胎",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.2d52611499c2f25b",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：800000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.e1f6552c8dd8c32a",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：700000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.76a7a6141810d846",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：600000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.2617bfd76eb83be9",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：500000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.77c6f80df029aad0",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：400000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.ee4dde5254cd48f0",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：300000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.c36d738b480a48e5",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：200000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.43f31aaeae844a59",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：100000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.0c02f3a763a17e9e",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：90000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.e7584a2aaec06dac",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：80000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.bdb5c4fc489ac9eb",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：70000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.bcf656e3b9ebfba8",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：60000年魂骨",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
       "id": "entity.legacy.trait.777c50a411774aea",
       "entityType": "trait",
       "presentation": {
         "title": "海神岛魂兽供奉",
+        "description": "从原版事件【】标记迁移"
+      }
+    },
+    {
+      "id": "entity.legacy.trait.de175ed49f12185a",
+      "entityType": "trait",
+      "presentation": {
+        "title": "神考奖励：50000年魂骨",
         "description": "从原版事件【】标记迁移"
       }
     },
@@ -32499,6 +32619,14 @@
             "baseWeight": 10,
             "effects": [
               {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
+              },
+              {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
               },
@@ -32519,6 +32647,14 @@
             "enabled": true,
             "baseWeight": 20,
             "effects": [
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 3
+                }
+              },
               {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
@@ -32541,6 +32677,14 @@
             "baseWeight": 5,
             "effects": [
               {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 6
+                }
+              },
+              {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
               },
@@ -32561,6 +32705,14 @@
             "enabled": true,
             "baseWeight": 10,
             "effects": [
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 5
+                }
+              },
               {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
@@ -32583,6 +32735,14 @@
             "baseWeight": 15,
             "effects": [
               {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 4
+                }
+              },
+              {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
               },
@@ -32603,6 +32763,14 @@
             "enabled": true,
             "baseWeight": 15,
             "effects": [
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 2
+                }
+              },
               {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
@@ -32625,6 +32793,14 @@
             "baseWeight": 5,
             "effects": [
               {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 0
+                }
+              },
+              {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
               },
@@ -32645,6 +32821,14 @@
             "enabled": true,
             "baseWeight": 1,
             "effects": [
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 7
+                }
+              },
               {
                 "type": "signal.emit",
                 "signalId": "signal.setup.appearance-selected"
@@ -32976,6 +33160,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33127,6 +33319,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33262,6 +33462,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33368,6 +33576,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33474,6 +33690,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33577,6 +33801,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33680,6 +33912,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33783,6 +34023,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -33860,7 +34108,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -33882,7 +34133,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -33904,7 +34156,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 100000
+                }
               }
             ]
           }
@@ -33936,7 +34191,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -33958,7 +34214,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -33990,7 +34247,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -34012,7 +34270,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -34057,7 +34316,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -34092,7 +34360,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34119,7 +34388,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -34141,7 +34413,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -34171,7 +34444,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 60000
+                }
               }
             ]
           }
@@ -34193,7 +34469,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.2d52611499c2f25b",
+                  "soulBoneYears": 800000
+                }
               }
             ]
           }
@@ -34215,7 +34495,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34242,7 +34523,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -34264,7 +34548,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -34309,7 +34594,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -34344,7 +34638,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34371,7 +34666,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -34393,7 +34691,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -34423,7 +34722,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 50000
+                }
               }
             ]
           }
@@ -34445,7 +34747,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.e1f6552c8dd8c32a",
+                  "soulBoneYears": 700000
+                }
               }
             ]
           }
@@ -34467,7 +34773,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34494,7 +34801,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -34539,7 +34847,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -34574,7 +34891,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34601,7 +34919,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -34623,7 +34944,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -34653,7 +34975,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 40000
+                }
               }
             ]
           }
@@ -34675,7 +35000,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.76a7a6141810d846",
+                  "soulBoneYears": 600000
+                }
               }
             ]
           }
@@ -34697,7 +35026,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34724,7 +35054,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -34769,7 +35100,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -34804,7 +35144,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34831,7 +35172,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -34853,7 +35197,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -34883,7 +35228,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 40000
+                }
               }
             ]
           }
@@ -34905,7 +35253,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.2617bfd76eb83be9",
+                  "soulBoneYears": 500000
+                }
               }
             ]
           }
@@ -34927,7 +35279,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -34954,7 +35307,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -34999,7 +35353,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -35034,7 +35397,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35061,7 +35425,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -35083,7 +35450,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -35113,7 +35481,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 30000
+                }
               }
             ]
           }
@@ -35135,7 +35506,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.77c6f80df029aad0",
+                  "soulBoneYears": 400000
+                }
               }
             ]
           }
@@ -35157,7 +35532,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35184,7 +35560,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -35229,7 +35606,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -35264,7 +35650,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35291,7 +35678,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -35313,7 +35703,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -35343,7 +35734,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 20000
+                }
               }
             ]
           }
@@ -35365,7 +35759,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.ee4dde5254cd48f0",
+                  "soulBoneYears": 300000
+                }
               }
             ]
           }
@@ -35387,7 +35785,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35414,7 +35813,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -35459,7 +35859,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -35494,7 +35903,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35521,7 +35931,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -35543,7 +35956,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -35573,7 +35987,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 10000
+                }
               }
             ]
           }
@@ -35595,7 +36012,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.c36d738b480a48e5",
+                  "soulBoneYears": 200000
+                }
               }
             ]
           }
@@ -35617,7 +36038,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35644,7 +36066,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -35689,7 +36112,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -35724,7 +36156,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35751,7 +36184,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -35773,7 +36209,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -35803,7 +36240,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 5000
+                }
               }
             ]
           }
@@ -35825,7 +36265,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.43f31aaeae844a59",
+                  "soulBoneYears": 100000
+                }
               }
             ]
           }
@@ -35847,7 +36291,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -35874,7 +36319,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -35907,7 +36353,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -35929,7 +36378,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -35951,7 +36401,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 40000
+                }
               }
             ]
           }
@@ -35983,7 +36436,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36005,7 +36459,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36037,7 +36492,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36059,7 +36515,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36104,7 +36561,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -36139,7 +36605,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36166,7 +36633,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -36188,7 +36658,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -36218,7 +36689,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 30000
+                }
               }
             ]
           }
@@ -36240,7 +36714,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.76a7a6141810d846",
+                  "soulBoneYears": 600000
+                }
               }
             ]
           }
@@ -36262,7 +36740,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36289,7 +36768,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -36311,7 +36793,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36356,7 +36839,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -36391,7 +36883,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36418,7 +36911,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -36440,7 +36936,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -36470,7 +36967,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 30000
+                }
               }
             ]
           }
@@ -36492,7 +36992,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.77c6f80df029aad0",
+                  "soulBoneYears": 400000
+                }
               }
             ]
           }
@@ -36514,7 +37018,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36541,7 +37046,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36586,7 +37092,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -36621,7 +37136,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36648,7 +37164,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -36670,7 +37189,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -36700,7 +37220,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 30000
+                }
               }
             ]
           }
@@ -36722,7 +37245,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.ee4dde5254cd48f0",
+                  "soulBoneYears": 300000
+                }
               }
             ]
           }
@@ -36744,7 +37271,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36771,7 +37299,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -36816,7 +37345,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -36851,7 +37389,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -36878,7 +37417,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -36900,7 +37442,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -36930,7 +37473,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 20000
+                }
               }
             ]
           }
@@ -36952,7 +37498,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.c36d738b480a48e5",
+                  "soulBoneYears": 200000
+                }
               }
             ]
           }
@@ -36974,7 +37524,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37001,7 +37552,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -37046,7 +37598,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -37081,7 +37642,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37108,7 +37670,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -37130,7 +37695,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -37160,7 +37726,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 10000
+                }
               }
             ]
           }
@@ -37182,7 +37751,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.43f31aaeae844a59",
+                  "soulBoneYears": 100000
+                }
               }
             ]
           }
@@ -37204,7 +37777,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37231,7 +37805,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -37276,7 +37851,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -37311,7 +37895,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37338,7 +37923,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -37360,7 +37948,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -37390,7 +37979,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 6000
+                }
               }
             ]
           }
@@ -37412,7 +38004,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.0c02f3a763a17e9e",
+                  "soulBoneYears": 90000
+                }
               }
             ]
           }
@@ -37434,7 +38030,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37461,7 +38058,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -37506,7 +38104,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -37541,7 +38148,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37568,7 +38176,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -37590,7 +38201,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -37620,7 +38232,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 4000
+                }
               }
             ]
           }
@@ -37642,7 +38257,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.e7584a2aaec06dac",
+                  "soulBoneYears": 80000
+                }
               }
             ]
           }
@@ -37664,7 +38283,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37691,7 +38311,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -37736,7 +38357,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -37771,7 +38401,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37798,7 +38429,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -37820,7 +38454,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -37850,7 +38485,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 2000
+                }
               }
             ]
           }
@@ -37872,7 +38510,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.bdb5c4fc489ac9eb",
+                  "soulBoneYears": 70000
+                }
               }
             ]
           }
@@ -37894,7 +38536,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -37921,7 +38564,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -37954,7 +38598,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -37988,7 +38635,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -38010,7 +38658,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 20000
+                }
               }
             ]
           }
@@ -38042,7 +38693,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 30000
+                }
               }
             ]
           }
@@ -38076,7 +38730,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -38108,7 +38763,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -38153,7 +38809,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -38188,7 +38853,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38215,7 +38881,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -38237,7 +38906,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -38267,7 +38937,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 20000
+                }
               }
             ]
           }
@@ -38289,7 +38962,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.ee4dde5254cd48f0",
+                  "soulBoneYears": 300000
+                }
               }
             ]
           }
@@ -38311,7 +38988,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38338,7 +39016,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -38383,7 +39064,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -38418,7 +39108,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38445,7 +39136,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -38467,7 +39161,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -38497,7 +39192,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 10000
+                }
               }
             ]
           }
@@ -38519,7 +39217,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.c36d738b480a48e5",
+                  "soulBoneYears": 200000
+                }
               }
             ]
           }
@@ -38541,7 +39243,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38591,7 +39294,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -38626,7 +39338,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38653,7 +39366,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -38675,7 +39391,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -38705,7 +39422,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 8000
+                }
               }
             ]
           }
@@ -38727,7 +39447,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.43f31aaeae844a59",
+                  "soulBoneYears": 100000
+                }
               }
             ]
           }
@@ -38749,7 +39473,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38799,7 +39524,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -38834,7 +39568,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -38861,7 +39596,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -38883,7 +39621,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -38913,7 +39652,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 4000
+                }
               }
             ]
           }
@@ -38935,7 +39677,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.0c02f3a763a17e9e",
+                  "soulBoneYears": 90000
+                }
               }
             ]
           }
@@ -38957,7 +39703,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39007,7 +39754,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -39042,7 +39798,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39069,7 +39826,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -39091,7 +39851,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -39121,7 +39882,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 3000
+                }
               }
             ]
           }
@@ -39143,7 +39907,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.e7584a2aaec06dac",
+                  "soulBoneYears": 80000
+                }
               }
             ]
           }
@@ -39165,7 +39933,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39215,7 +39984,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -39250,7 +40028,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39277,7 +40056,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -39299,7 +40081,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -39329,7 +40112,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 2000
+                }
               }
             ]
           }
@@ -39351,7 +40137,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.bdb5c4fc489ac9eb",
+                  "soulBoneYears": 70000
+                }
               }
             ]
           }
@@ -39373,7 +40163,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39423,7 +40214,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -39458,7 +40258,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39485,7 +40286,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -39507,7 +40311,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -39537,7 +40342,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 1000
+                }
               }
             ]
           }
@@ -39559,7 +40367,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.bcf656e3b9ebfba8",
+                  "soulBoneYears": 60000
+                }
               }
             ]
           }
@@ -39581,7 +40393,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39619,7 +40432,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "godArmorTraitId": "entity.legacy.trait.cdbaab86babceb23"
+                }
               }
             ]
           }
@@ -39641,7 +40457,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -39663,7 +40480,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 10000
+                }
               }
             ]
           }
@@ -39695,7 +40515,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 20000
+                }
               }
             ]
           }
@@ -39717,7 +40540,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -39756,7 +40580,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               }
             ]
           }
@@ -39801,7 +40626,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -39836,7 +40670,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -39863,7 +40698,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -39885,7 +40723,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -39915,7 +40754,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 5000
+                }
               }
             ]
           }
@@ -39937,7 +40779,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.43f31aaeae844a59",
+                  "soulBoneYears": 100000
+                }
               }
             ]
           }
@@ -39959,7 +40805,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40009,7 +40856,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -40044,7 +40900,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40071,7 +40928,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -40093,7 +40953,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -40123,7 +40984,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 4000
+                }
               }
             ]
           }
@@ -40145,7 +41009,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.0c02f3a763a17e9e",
+                  "soulBoneYears": 90000
+                }
               }
             ]
           }
@@ -40167,7 +41035,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40217,7 +41086,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -40252,7 +41130,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40279,7 +41158,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -40301,7 +41183,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -40331,7 +41214,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 2000
+                }
               }
             ]
           }
@@ -40353,7 +41239,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.e7584a2aaec06dac",
+                  "soulBoneYears": 80000
+                }
               }
             ]
           }
@@ -40375,7 +41265,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40425,7 +41316,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -40460,7 +41360,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40487,7 +41388,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -40509,7 +41413,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -40539,7 +41444,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 1500
+                }
               }
             ]
           }
@@ -40561,7 +41469,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.bdb5c4fc489ac9eb",
+                  "soulBoneYears": 70000
+                }
               }
             ]
           }
@@ -40583,7 +41495,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40633,7 +41546,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -40668,7 +41590,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -40695,7 +41618,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -40717,7 +41643,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -40747,7 +41674,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 1000
+                }
               }
             ]
           }
@@ -40769,7 +41699,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.bcf656e3b9ebfba8",
+                  "soulBoneYears": 60000
+                }
               }
             ]
           }
@@ -40791,7 +41725,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -41931,7 +42866,16 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -41966,7 +42910,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -41993,7 +42938,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "artifactTraitId": "entity.legacy.trait.34e7996c3b61d32e"
+                }
               }
             ]
           }
@@ -42015,7 +42963,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "stat.change",
@@ -42045,7 +42994,10 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "ringYearBoost": 500
+                }
               }
             ]
           }
@@ -42067,7 +43019,11 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {
+                  "soulBoneTraitId": "entity.legacy.trait.de175ed49f12185a",
+                  "soulBoneYears": 50000
+                }
               }
             ]
           }
@@ -42089,7 +43045,8 @@
             "effects": [
               {
                 "type": "signal.emit",
-                "signalId": "signal.god-trial.exam-completed"
+                "signalId": "signal.god-trial.exam-completed",
+                "payload": {}
               },
               {
                 "type": "entity.grant",
@@ -58788,6 +59745,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -62445,6 +63410,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -62564,6 +63537,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -62683,6 +63664,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -76467,6 +77456,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -76525,6 +77522,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -76644,6 +77649,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -77260,6 +78273,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -77395,6 +78416,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -78134,6 +79163,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -78362,6 +79399,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -78428,6 +79473,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -78579,6 +79632,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -78730,6 +79791,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }
@@ -78865,6 +79934,14 @@
               {
                 "type": "signal.emit",
                 "signalId": "signal.sea-god-reward-completed"
+              },
+              {
+                "type": "stat.change",
+                "stat": "appearance-rank",
+                "delta": {
+                  "type": "constant",
+                  "value": 1
+                }
               }
             ]
           }

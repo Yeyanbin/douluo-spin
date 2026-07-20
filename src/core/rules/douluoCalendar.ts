@@ -29,10 +29,14 @@ export function douluoMilestoneAtTangAge(tangAge: number): DouluoCalendarMilesto
   return DOULUO_CALENDAR_MILESTONES.find((milestone) => Math.abs(milestone.tangAge - tangAge) < 0.001) ?? null
 }
 
-export function formatDouluoDate(tangAge: number): string {
+export function formatDouluoYear(tangAge: number): string {
   const year = douluoYearAtTangAge(tangAge)
   const yearLabel = Number.isInteger(year) ? String(year) : year.toFixed(1)
+  return `斗罗历${yearLabel}年`
+}
+
+export function formatDouluoDate(tangAge: number): string {
   const age = Number.isInteger(tangAge) ? String(tangAge) : tangAge.toFixed(2).replace(/0+$/, '').replace(/\.$/, '')
-  if (tangAge < 0) return `斗罗历${yearLabel}年 · 唐三出生前${Math.abs(tangAge)}年`
-  return `斗罗历${yearLabel}年 · 唐三${age}岁`
+  if (tangAge < 0) return `${formatDouluoYear(tangAge)} · 唐三出生前${Math.abs(tangAge)}年`
+  return `${formatDouluoYear(tangAge)} · 唐三${age}岁`
 }

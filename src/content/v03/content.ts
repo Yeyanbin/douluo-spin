@@ -44,22 +44,27 @@ const appearanceRankByEntity = new Map([
   ['entity.appearance.b', 4], ['entity.appearance.a', 5], ['entity.appearance.s', 6], ['entity.appearance.ex', 7],
 ])
 
+function appearanceRank(state: GameState): number {
+  if (typeof state.stats?.['appearance-rank'] === 'number') return state.stats['appearance-rank']
+  return Math.max(-1, ...state.entities.appearance.map((entityId) => appearanceRankByEntity.get(entityId) ?? -1))
+}
+
 function hasMinimumAppearanceRank(state: GameState, args?: JsonObject): boolean {
   const rank = args?.rank
   if (typeof rank !== 'number') return false
-  return state.entities.appearance.some((entityId) => (appearanceRankByEntity.get(entityId) ?? -1) >= rank)
+  return appearanceRank(state) >= rank
 }
 
 function hasMaximumAppearanceRank(state: GameState, args?: JsonObject): boolean {
   const rank = args?.rank
   if (typeof rank !== 'number') return false
-  return state.entities.appearance.some((entityId) => (appearanceRankByEntity.get(entityId) ?? Infinity) <= rank)
+  return appearanceRank(state) <= rank
 }
 
 function hasAppearanceRankIn(state: GameState, args?: JsonObject): boolean {
   const ranks = args?.ranks
   if (!Array.isArray(ranks) || !ranks.every((rank) => typeof rank === 'number')) return false
-  return state.entities.appearance.some((entityId) => ranks.includes(appearanceRankByEntity.get(entityId) ?? -1))
+  return ranks.includes(appearanceRank(state))
 }
 
 function policyStringSetArgument(args: JsonObject | undefined, name: string): readonly string[] {

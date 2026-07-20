@@ -33,6 +33,7 @@ async function start(page: Page, route: 'human' | 'beast', seed: string) {
   await page.locator('.seed-field input').fill(seed)
   await page.getByRole('button', { name: route === 'human' ? '人类魂师' : '魂兽肉鸽' }).click()
   await expect(page.getByRole('dialog', { name: '选择起始路线' })).toBeHidden()
+  await expect(page.locator('.character-summary strong')).toHaveText(/^斗罗历\d+(?:\.\d)?年$/)
   await expect(page.locator('.task-header h2')).not.toHaveText('展开下一段命运')
 }
 

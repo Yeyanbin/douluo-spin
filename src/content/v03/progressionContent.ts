@@ -91,8 +91,8 @@ const grant = (entityType: EntityType, value: string): EffectSpec => ({ type: 'e
 
 export const progressionPools: readonly PoolSource[] = [
   pool('pool.god-trial.training', '神考修行', godTag, [
-    { id: 'option.god-trial.training.steady', title: '以神考压力淬炼魂力', weight: 49, effects: [change('age', 2), advance(2), change('level', 10), emit('signal.god-trial.training-completed')] },
-    { id: 'option.god-trial.training.breakthrough', title: '借神性突破魂力瓶颈', weight: 49, effects: [change('age', 2), advance(2), change('level', 12), emit('signal.god-trial.training-completed')] },
+    { id: 'option.god-trial.training.steady', title: '以神考压力淬炼魂力，等级+10', weight: 49, effects: [change('age', 2), advance(2), change('level', 10), emit('signal.god-trial.training-completed')] },
+    { id: 'option.god-trial.training.breakthrough', title: '借神性突破魂力瓶颈，等级+12', weight: 49, effects: [change('age', 2), advance(2), change('level', 12), emit('signal.god-trial.training-completed')] },
     { id: 'option.god-trial.training.failure', title: '神考反噬，试炼中陨落', weight: 2, effects: [{ type: 'run.finish', endingId: endingId('ending.death') }] },
   ]),
   ...[20, 30, 40, 50, 60, 70, 80, 99].map((threshold) => pool(`pool.god-offer.${threshold}`, `${threshold}级神位感召`, godTag, [

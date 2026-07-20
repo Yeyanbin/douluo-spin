@@ -48,6 +48,7 @@ export function createInitialGameState(contentVersion: string): GameState {
       },
       growthCycles: 0,
       rings: [],
+      ringYearBonuses: [],
       storyNodes: [],
       storyBranch: null,
       scheduledStoryMilestones: [],
@@ -135,7 +136,20 @@ export function reduceEvent(state: GameState, event: DomainEvent): GameState {
       return {
         ...state,
         entities: { ...state.entities, 'soul-ring': [...state.entities['soul-ring'], event.ringId] },
-        progression: { ...state.progression, rings: [...state.progression.rings, event.ringId] },
+        progression: {
+          ...state.progression,
+          rings: [...state.progression.rings, event.ringId],
+          ringYearBonuses: [...state.progression.ringYearBonuses, 0],
+        },
+      }
+    case 'soul-rings.enhanced':
+      if (!Number.isFinite(event.years) || event.years <= 0) throw new Error(`Invalid soul ring enhancement: ${event.years}`)
+      return {
+        ...state,
+        progression: {
+          ...state.progression,
+          ringYearBonuses: state.progression.rings.map((_, index) => (state.progression.ringYearBonuses[index] ?? 0) + event.years),
+        },
       }
     case 'story.completed':
       if (event.index !== state.progression.storyNodes.length + 1) throw new Error(`Story index mismatch: ${event.index}`)

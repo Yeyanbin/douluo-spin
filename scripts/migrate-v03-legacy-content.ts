@@ -964,6 +964,15 @@ function legacyGodRewardRequiredLevel(title: string) {
   return match ? Number(match[1] ?? match[2]) : undefined
 }
 
+function legacyGodRewardSoulBoneYears(title: string) {
+  return /获得一块.*魂骨/.test(title) ? legacyCultivation(title) : undefined
+}
+
+function legacyGodRewardRingYearBoost(title: string) {
+  const match = title.match(/全部魂环提升(\d+)年/)
+  return match ? Number(match[1]) : undefined
+}
+
 function legacySeaGodGrade(value: string): LegacySeaGodGrade | undefined {
   if (/海神九考/.test(value)) return 'sea-god'
   if (/顶级/.test(value)) return 'top'
@@ -1355,6 +1364,7 @@ function legacyProcessEffects(pool: LegacyPool, option: LegacyOption): Array<Rec
       break
     }
     case 'setup-appearance':
+      change('appearance-rank', legacyAppearance(option.name)?.rank ?? 0)
       emit('signal.setup.appearance-selected')
       break
     case 'setup-martial-type': {
@@ -1535,9 +1545,30 @@ function legacyProcessEffects(pool: LegacyPool, option: LegacyOption): Array<Rec
       })
       break
     }
-    case 'god-reward':
-      emit('signal.god-trial.exam-completed')
+    case 'god-reward': {
+      const payload: Record<string, unknown> = {}
+      const soulBoneYears = legacyGodRewardSoulBoneYears(option.name)
+      const ringYearBoost = legacyGodRewardRingYearBoost(option.name)
+      if (/神器胚胎/.test(option.name)) {
+        const label = '神考奖励：神器胚胎'
+        traitLabels.add(label)
+        payload.artifactTraitId = traitEntityId(label)
+      }
+      if (soulBoneYears != null) {
+        const label = `神考奖励：${soulBoneYears}年魂骨`
+        traitLabels.add(label)
+        payload.soulBoneTraitId = traitEntityId(label)
+        payload.soulBoneYears = soulBoneYears
+      }
+      if (ringYearBoost != null) payload.ringYearBoost = ringYearBoost
+      if (/获得神铠着装/.test(option.name)) {
+        const label = '神考奖励：神铠'
+        traitLabels.add(label)
+        payload.godArmorTraitId = traitEntityId(label)
+      }
+      emit('signal.god-trial.exam-completed', payload)
       break
+    }
     case 'story':
       if (pool.name === '剧情16:七怪打算前往海神岛，你是否前往（唐三21岁限定）') {
         emit('signal.sea-god-island-selected', { accepted: /^(?:是，)?前往海神岛/.test(option.name) })
@@ -1769,7 +1800,7 @@ function migrateOption(pool: LegacyPool, option: LegacyOption) {
   if (levelDelta != null) effects.push(statChange('level', levelDelta))
 
   const appearanceDelta = signedNumber(title, /容貌\s*([+-])\s*(\d+(?:\.\d+)?)/)
-  if (appearanceDelta != null && !/ex级?无法提升/i.test(title)) effects.push(statChange('appearance-rank', appearanceDelta))
+  if (appearanceDelta != null) effects.push(statChange('appearance-rank', appearanceDelta))
 
   const cultivationDelta = signedNumber(title, /修为\s*([+-])\s*(\d+(?:\.\d+)?)(万|亿)?/)
     ?? negativeCultivation(title)

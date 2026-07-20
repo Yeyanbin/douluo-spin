@@ -1,5 +1,5 @@
 import { endingId, signalId } from '../ids'
-import { legacyGodDeityPool, legacyFlow, legacyOptionSemantic } from '@/content/v03/legacyFlow'
+import { legacyGodDeityPool, legacyFlow, legacyOptionSemantic, legacyPoolsForRole } from '@/content/v03/legacyFlow'
 import type { DomainEvent, GameState } from '../model/contracts'
 import type { ProcessManager } from './processManager'
 import { hasSignal, selectedOption, task } from './processHelpers'
@@ -66,8 +66,13 @@ export const godTrialProcess: ProcessManager = {
     if (!hasSignal(events, signalId('signal.god-trial.exam-completed'))) return []
     const trial = state.progression.godTrial
     if (!trial) return []
+    const completion = events.find((event): event is Extract<DomainEvent, { type: 'signal.emitted' }> =>
+      event.type === 'signal.emitted' && event.signalId === signalId('signal.god-trial.exam-completed'))
+    const reward = godRewardEvents(state, completion?.payload)
+    if (reward.some((event) => event.type === 'run.finished')) return reward
     const after = trial.completed + 1
     const result: DomainEvent[] = [
+      ...reward,
       { type: 'god-trial.progressed', before: trial.completed, after },
       { type: 'signal.emitted', signalId: signalId('signal.god-trial.progressed') },
     ]
@@ -83,6 +88,31 @@ export const godTrialProcess: ProcessManager = {
     }
     return result
   },
+}
+
+function godRewardEvents(state: GameState, payload: Extract<DomainEvent, { type: 'signal.emitted' }>['payload']): DomainEvent[] {
+  if (!payload) return []
+  if (payload.godArmorTraitId && state.entities['soul-bone'].length < 6) {
+    return [{ type: 'run.finished', endingId: endingId('ending.death'), alive: false }]
+  }
+  const result: DomainEvent[] = []
+  for (const key of ['artifactTraitId', 'soulBoneTraitId', 'godArmorTraitId'] as const) {
+    const entity = payload[key]
+    if (typeof entity === 'string' && !state.entities.trait.includes(entity as never)) {
+      result.push({ type: 'entity.granted', entityType: 'trait', entityId: entity as never })
+    }
+  }
+  if (typeof payload.ringYearBoost === 'number' && payload.ringYearBoost > 0) {
+    result.push({ type: 'soul-rings.enhanced', years: payload.ringYearBoost })
+  }
+  if (typeof payload.soulBoneYears === 'number' && payload.soulBoneYears > 0) {
+    const pool = legacyPoolsForRole('soul-bone')[0]
+    if (pool) result.push({
+      type: 'task.scheduled',
+      task: task(`god-reward.soul-bone.${state.progression.godTrial?.completed ?? 0}`, pool.activePoolId, 'god-trial', { years: payload.soulBoneYears }),
+    })
+  }
+  return result
 }
 
 function legacyGodTriggerPool() {

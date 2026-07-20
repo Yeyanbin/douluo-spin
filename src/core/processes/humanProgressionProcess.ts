@@ -60,10 +60,9 @@ export const humanProgressionProcess: ProcessManager = {
     }
     if (hasSignal(events, signalId('signal.story.completed')) && isHumanAdventure(state) && state.agenda.length === 0) {
       const factionStoryStage = selectedFactionStoryStage(events)
-      return [
-        ...(factionStoryStage ? [{ type: 'faction-story.stage-completed' as const, ...factionStoryStage }] : []),
-        ...afterHumanGrowth(state, state.progression.growthCycles + 1),
-      ]
+      return factionStoryStage
+        ? [{ type: 'faction-story.stage-completed', ...factionStoryStage }]
+        : afterHumanGrowth(state, state.progression.growthCycles + 1)
     }
     if (selectedLegacyRole(events) === 'human-encounter' && isHumanAdventure(state) && state.agenda.length === 0) {
       return afterHumanGrowth(state, state.progression.growthCycles + 1)
@@ -81,7 +80,7 @@ export const humanProgressionProcess: ProcessManager = {
       // Auxiliary chains (rings, species, bones and rewards) may outlive the
       // encounter or faction-story task that normally advances the journey.
       // Resume from the settled state once their final task drains the agenda.
-      return isHumanAdventure(state) && state.agenda.length === 0 && !hasSignal(events, signalId('signal.god-trial.exam-completed')) && events.some((event) => event.type === 'task.completed' || event.type === 'flow.stage-completed')
+      return isHumanAdventure(state) && state.agenda.length === 0 && !hasSignal(events, signalId('signal.god-trial.exam-completed')) && events.some((event) => event.type === 'task.completed' || event.type === 'flow.stage-completed' || event.type === 'faction-story.stage-completed')
         ? afterHumanGrowth(state, state.progression.growthCycles + 1)
         : []
     }

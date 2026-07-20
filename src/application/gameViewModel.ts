@@ -2,8 +2,9 @@ import type { Candidate } from '@/core/draw/draw'
 import type { CombatPowerSnapshot, CompiledContent, EffectSpec, EventBatch, GameState, MechanicsOption, Predicate } from '@/core/model/contracts'
 import { applyBatch, createInitialGameState } from '@/core/reducer/reducer'
 import { calculateCombatPower } from '@/core/rules/combatPower'
-import { DOULUO_CALENDAR_MILESTONES, douluoMilestoneAtTangAge, formatDouluoDate } from '@/core/rules/douluoCalendar'
+import { DOULUO_CALENDAR_MILESTONES, douluoMilestoneAtTangAge, formatDouluoDate, formatDouluoYear } from '@/core/rules/douluoCalendar'
 import { highestLegacyMartialSoulTier, legacyMartialSoulTier } from '@/content/v03/legacyMartialSoulRules'
+import { legacyRingYears } from '@/content/v03/legacyFlow'
 
 export interface WheelOptionView {
   readonly id: string
@@ -36,7 +37,8 @@ export interface ChronicleView {
   readonly title: string
   readonly text: string
   readonly tone: 'normal' | 'good' | 'bad' | 'major'
-  readonly time: string
+  readonly calendar: string
+  readonly characterStatus: string
   readonly milestone: string
 }
 
@@ -82,9 +84,13 @@ function title(content: CompiledContent, id: string): string {
 const martialSoulTierLabels: Readonly<Record<number, string>> = {
   1: '废武魂', 2: '一般武魂', 3: '优秀武魂', 4: '顶级武魂', 5: '极品武魂', 6: '神级武魂',
 }
+const appearanceRankLabels = ['F级', 'E级', 'D级', 'C级', 'B级', 'A级', 'S级', 'EX级'] as const
 
-function timeLabel(state: GameState): string {
-  return formatDouluoDate(state.stats['tang-age'])
+function characterStatusLabel(state: GameState): string {
+  const age = formatCompactNumber(state.stats.age)
+  return state.route === 'beast'
+    ? `${age}岁，${formatCompactNumber(state.stats['beast-cultivation'])}年修为`
+    : `${age}岁，${formatCompactNumber(state.stats.level)}级`
 }
 
 export function projectChronicle(state: GameState, batches: readonly EventBatch[], content: CompiledContent): ChronicleView[] {
@@ -106,7 +112,8 @@ export function projectChronicle(state: GameState, batches: readonly EventBatch[
       title: content.presentation.pools.get(selected.poolId)?.title ?? selected.poolId,
       text: content.presentation.options.get(selected.optionId)?.title ?? selected.optionId,
       tone,
-      time: timeLabel(projectedState),
+      calendar: formatDouluoYear(projectedState.stats['tang-age']),
+      characterStatus: characterStatusLabel(projectedState),
       milestone: milestoneTitle,
     } satisfies ChronicleView]
   })
@@ -131,12 +138,12 @@ export function projectGameView(
   return {
     seed: state.random.seed,
     route: state.route,
-    name: '无名旅者',
+    name: formatDouluoYear(state.stats['tang-age']),
     step: state.turn,
     age: state.stats.age || null,
     tangAge: state.stats['tang-age'],
     gender: state.entities.gender.map((id) => title(content, id)).at(-1) ?? '',
-    appearance: state.entities.appearance.map((id) => title(content, id)).at(-1) ?? '',
+    appearance: appearanceRankLabels[state.stats['appearance-rank']] ?? state.entities.appearance.map((id) => title(content, id)).at(-1) ?? '',
     level: state.stats.level,
     maxLevel: state.stats['max-level'],
     faction: state.entities.faction.map((id) => title(content, id)).at(-1) ?? '',
@@ -149,8 +156,9 @@ export function projectGameView(
     domains: state.entities.domain.map((id) => title(content, id)),
     rings: state.progression.rings.map((id, index) => {
       const label = title(content, id)
-      const years = id.endsWith('hundred') ? 100 : id.endsWith('thousand') ? 1_000 : 10_000
-      return { index: index + 1, years, description: label }
+      const bonus = state.progression.ringYearBonuses[index] ?? 0
+      const years = (legacyRingYears(id) ?? (id.endsWith('hundred') ? 100 : id.endsWith('thousand') ? 1_000 : 10_000)) + bonus
+      return { index: index + 1, years, description: bonus > 0 ? `${years}年魂环（原${label}，神考提升${bonus}年）` : label }
     }),
     soulBones: state.entities['soul-bone'].map((id) => title(content, id)),
     beast: routeIsBeast ? {
@@ -217,6 +225,10 @@ export function formatBiography(view: GameViewModel): string {
     `武魂/本体：${view.beast ? view.beast.species : view.martialSoulDetails.map((soul) => `${soul.title}【${soul.tierLabel}】`).join('、') || '未觉醒'}`,
     ...(view.beast ? [] : [`最高武魂阶位：${view.martialSouls.length ? martialSoulTierLabels[view.highestMartialSoulTier] : '无'}`]),
     `魂环：${view.rings.map((ring) => ring.description).join('、') || '无'}`,
+    `魂骨：${view.soulBones.join('、') || '无'}`,
+    `领域：${view.domains.join('、') || '无'}`,
+    `天赋/称号/奖励：${view.traits.join('、') || '无'}`,
+    ...(view.godTrial ? [`神考进度：${view.godTrial.deity} · ${view.godTrial.tier} · ${view.godTrial.completed}/${view.godTrial.total}`] : []),
     `神位：${view.godhoods.map((godhood) => godhood.deity).join('、') || '无'}`,
     ...(view.beast ? [] : [
       `战力值：${combat.total}`,
@@ -228,10 +240,28 @@ export function formatBiography(view: GameViewModel): string {
     ...DOULUO_CALENDAR_MILESTONES.map((milestone) => `- ${formatDouluoDate(milestone.tangAge)}：${milestone.title}`),
     '',
     '## 命运纪事',
-    ...view.logs.flatMap((entry) => ['', `### 第${entry.step}回 · ${entry.time}${entry.milestone ? ` · ${entry.milestone}` : ''} · ${entry.title}`, entry.text]),
+    ...formatBiographyChronicle(view.logs),
   ].join('\n')
+}
+
+function formatBiographyChronicle(entries: readonly ChronicleView[]): string[] {
+  let previousCalendar = ''
+  return entries.flatMap((entry) => {
+    const calendarChanged = entry.calendar !== previousCalendar
+    previousCalendar = entry.calendar
+    return [
+      ...(calendarChanged ? ['', `### ${entry.calendar}${entry.milestone ? ` · ${entry.milestone}` : ''}`] : []),
+      '',
+      `#### 第${entry.step}回 · ${entry.characterStatus} · ${entry.title}`,
+      entry.text,
+    ]
+  })
 }
 
 function formatCombatPart(value: number) {
   return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0+$/, '').replace(/\.$/, '')
+}
+
+function formatCompactNumber(value: number) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, '')
 }

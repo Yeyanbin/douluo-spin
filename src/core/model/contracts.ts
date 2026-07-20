@@ -257,6 +257,7 @@ export type DomainEvent =
   | { readonly type: 'route.changed'; readonly from: Route; readonly to: Route }
   | { readonly type: 'growth.completed'; readonly route: Route; readonly cycle: number }
   | { readonly type: 'soul-ring.granted'; readonly ringId: EntityId; readonly index: number }
+  | { readonly type: 'soul-rings.enhanced'; readonly years: number }
   | { readonly type: 'story.completed'; readonly nodeId: EntityId; readonly index: number }
   | { readonly type: 'story.branch-selected'; readonly branch: number }
   | { readonly type: 'story.milestone-scheduled'; readonly branch: number; readonly atTangAge: number }
@@ -312,6 +313,7 @@ export interface GameState {
     readonly combatPower: CombatPowerSnapshot
     readonly growthCycles: number
     readonly rings: readonly EntityId[]
+    readonly ringYearBonuses: readonly number[]
     readonly storyNodes: readonly EntityId[]
     readonly storyBranch: number | null
     readonly scheduledStoryMilestones: readonly string[]

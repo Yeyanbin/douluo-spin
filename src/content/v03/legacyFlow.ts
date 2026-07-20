@@ -216,6 +216,12 @@ export function legacyOptionPool(optionId: OptionId): LegacyFlowPool | undefined
   return optionsById.get(optionId)?.pool
 }
 
+export function legacyRingYears(entityId: EntityId): number | undefined {
+  return allFlowPools
+    .flatMap((pool) => pool.options)
+    .find((option) => option.semantic.ringEntityId === entityId)?.semantic.ringYears
+}
+
 export function legacyFactionStoryId(entityId: EntityId): string | undefined {
   return allFlowPools
     .flatMap((pool) => pool.options)

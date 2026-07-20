@@ -9,10 +9,20 @@ const emit = defineEmits<{ export: []; copy: [] }>()
 const query = ref('')
 const majorOnly = ref(false)
 const filtered = computed(() => props.entries.filter((entry) => {
-  const matchesQuery = !query.value || `${entry.title}${entry.text}`.includes(query.value)
+  const matchesQuery = !query.value || `${entry.calendar}${entry.characterStatus}${entry.milestone}${entry.title}${entry.text}`.includes(query.value)
   const matchesTone = !majorOnly.value || entry.tone === 'major' || entry.tone === 'bad'
   return matchesQuery && matchesTone
 }).reverse())
+const groups = computed(() => filtered.value.reduce<Array<{ calendar: string; milestone: string; entries: ChronicleEntry[] }>>((result, entry) => {
+  const current = result.at(-1)
+  if (current?.calendar === entry.calendar) {
+    current.entries.push(entry)
+    if (!current.milestone && entry.milestone) current.milestone = entry.milestone
+  } else {
+    result.push({ calendar: entry.calendar, milestone: entry.milestone, entries: [entry] })
+  }
+  return result
+}, []))
 
 const copyTitle = computed(() => {
   if (props.copyStatus === 'success') return '已复制到剪贴板'
@@ -42,10 +52,16 @@ const copyTitle = computed(() => {
       <button class="icon-button export-button" title="导出人物传记" aria-label="导出人物传记" @click="emit('export')"><Download :size="18" /></button>
     </div>
     <div class="timeline">
-      <article v-for="entry in filtered" :key="entry.id" class="timeline-entry" :data-tone="entry.tone">
-        <i aria-hidden="true" />
-        <div><header><strong>{{ entry.title }}</strong><time>{{ entry.time }}</time></header><small v-if="entry.milestone" class="timeline-milestone">{{ entry.milestone }}</small><p>{{ entry.text }}</p></div>
-      </article>
+      <section v-for="group in groups" :key="group.calendar" class="timeline-group">
+        <header class="timeline-calendar">
+          <time>{{ group.calendar }}</time>
+          <small v-if="group.milestone">{{ group.milestone }}</small>
+        </header>
+        <article v-for="entry in group.entries" :key="entry.id" class="timeline-entry" :data-tone="entry.tone">
+          <i aria-hidden="true" />
+          <div><header><strong>{{ entry.title }}</strong><time>{{ entry.characterStatus }}</time></header><p>{{ entry.text }}</p></div>
+        </article>
+      </section>
       <p v-if="!filtered.length" class="empty-state">还没有符合条件的命运纪事。</p>
     </div>
   </section>

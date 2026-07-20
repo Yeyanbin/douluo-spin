@@ -1,6 +1,7 @@
 import type { EntityId } from '../ids'
 import type { CombatPowerSnapshot, GameState } from '../model/contracts'
 import { legacyBattleTraitIds, legacyTalentTraitIds } from '@/content/v03/legacyCombatRules'
+import { legacyRingYears } from '@/content/v03/legacyFlow'
 import { legacyMartialSoulTier } from '@/content/v03/legacyMartialSoulRules'
 
 const tierPower: Readonly<Record<number, number>> = { 1: 0, 2: 3, 3: 8, 4: 15, 5: 25, 6: 45 }
@@ -32,7 +33,7 @@ export function combatSoulBonePower(years: number): number {
 }
 
 function knownRingYears(ringId: EntityId): number {
-  return ringYears[ringId] ?? 10_000
+  return legacyRingYears(ringId) ?? ringYears[ringId] ?? 10_000
 }
 
 function knownSoulBoneYears(boneId: EntityId): number {
@@ -41,7 +42,8 @@ function knownSoulBoneYears(boneId: EntityId): number {
 
 export function calculateCombatPower(state: GameState): CombatPowerBreakdown {
   const levelBase = state.stats.level * state.stats.level / 20
-  const ringPower = state.progression.rings.reduce((sum, ring) => sum + combatRingPower(knownRingYears(ring)), 0)
+  const ringPower = state.progression.rings.reduce((sum, ring, index) =>
+    sum + combatRingPower(knownRingYears(ring) + (state.progression.ringYearBonuses[index] ?? 0)), 0)
   const martialSoulPower = state.entities['martial-soul']
     .reduce((sum, martialSoul) => sum + (tierPower[legacyMartialSoulTier(martialSoul)] ?? 0), 0)
   const domainPower = state.entities.domain.length * 15
