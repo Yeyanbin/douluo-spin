@@ -191,11 +191,22 @@ test('mobile: beast transforms, finishes, supports tabs and has no horizontal ov
     await expect(page.getByRole('tab', { name: '主舞台' })).toHaveAttribute('aria-selected', 'true')
     await page.getByRole('tab', { name: '主舞台' }).press('ArrowRight')
     await expect(page.getByRole('tab', { name: '角色' })).toHaveAttribute('aria-selected', 'true')
+    await expect(page.locator('.character-panel')).toHaveCSS('animation-name', 'none')
     await page.getByRole('tab', { name: '主舞台' }).click()
+    const layout = await page.evaluate(() => {
+      const result = document.querySelector('.result-panel')?.getBoundingClientRect()
+      const controls = document.querySelector('.play-controls')?.getBoundingClientRect()
+      const position = getComputedStyle(document.querySelector('.play-controls')!).position
+      return { position, resultBottom: result?.bottom ?? 0, controlsTop: controls?.top ?? 0 }
+    })
+    expect(layout.position).toBe('static')
+    expect(layout.controlsTop).toBeGreaterThanOrEqual(layout.resultBottom)
     page.once('dialog', (dialog) => dialog.accept())
     await page.getByRole('button', { name: '极速结算' }).click()
     await expect(page.locator('.ending-banner')).toBeVisible({ timeout: 20_000 })
     await expect(page.locator('.character-summary')).toContainText('化形魂师')
+    await page.getByRole('tab', { name: '纪事' }).click()
+    await expect(page.locator('.timeline-entry').first()).toHaveCSS('animation-name', 'none')
     const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, viewport: window.innerWidth }))
     expect(dimensions.scrollWidth).toBeLessThanOrEqual(dimensions.viewport)
     await page.screenshot({ path: testInfo.outputPath('mobile-transformed-v03.png'), fullPage: true })
